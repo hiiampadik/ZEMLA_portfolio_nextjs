@@ -34,6 +34,7 @@ export default function TopMenu(props) {
   return (
     <nav>
       {console.log(router)}
+      
       {showMenu ? (
         <MenuWindow
           handleQuality={() => handleQuality()}
