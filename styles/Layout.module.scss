@@ -1,0 +1,23 @@
+@import '../styles/_variables.scss';
+
+
+
+.main {
+  
+  // min-height: 80vh;
+
+  padding-top: $lh * 3;
+  padding-bottom: 0;
+ 
+}
+
+.mainSimple{
+  margin: 0 auto;
+  padding: $lh * 3 0;
+  max-width: 1000px;
+}
+
+.mainSimpleBg{
+  background-color: rgb(255, 252, 233);
+
+}

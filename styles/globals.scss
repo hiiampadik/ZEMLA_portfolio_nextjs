@@ -1,0 +1,174 @@
+@import "_variables.scss";
+
+// NEUE MONTREAL
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Book.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Italic.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-SemiBolditalic.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// Neue Bit
+
+@font-face {
+  font-family: "NeueBit";
+  src: url("/fonts/otf_bit/PPNeueBit-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mondwest";
+  src: url("/fonts/otf_bit/PPMondwest-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mondwest";
+  src: url("/fonts/otf_bit/PPMondwest-Bold.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  font-size: 30px;
+  text-rendering: optimizeLegibility;
+  line-height: 1.38;
+  /* font-smoothing: antialiased; */
+
+  @media only screen and (max-width: $breakpoint-mobile-max) {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+button {
+  color: var(--main-text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 1.2em;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  /* margin: 0 */
+}
+
+figure {
+  margin: 0;
+}
+
+/* Themes */
+:root {
+    --menufont: NeueBit, Helvetica, Arial, sans-serif;
+  --menuweight: 500;
+  --menusize: 1.1em;
+
+  --borderradius: calc(0.3rem); 
+
+  --bg: rgba(255, 255, 255, 0.8);
+  --blur: blur(0.7rem);
+
+}
+
+[data-theme="lowTech"] {
+  --menufont: Mondwest, Times, serif;
+  --menuweight: 500;
+  --menusize: 1.1rem;
+
+  --borderradius: 0;
+
+  --bg:white;
+  --blur: blur(0);
+}
+
+[data-theme="highTech"] {
+  --menufont: NeueMontreal, Helvetica, Arial, sans-serif;
+  --menuweight: 500;
+  --menusize: 1rem;
+
+  --borderradius: calc(0.3rem); 
+
+  --bg: rgba(255, 255, 255, 0.8);
+  --blur: blur(0.7rem);
+}
+
+
+
+
+body{
+  font-family: var(--menufont);
+  font-weight: var(--menuweight);
+  background-color: #fcfcfc;
+  color: black;
+}

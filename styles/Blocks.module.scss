@@ -1,0 +1,70 @@
+@import "_variables.scss";
+
+.blocks {
+  width: 100%;
+
+  p,
+  h1,
+  h2 {
+    margin: 0;
+  }
+  h1 {
+    margin-top: $lh;
+    margin-bottom: $lh / 3;
+    font-size: 1rem;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 1px;
+  }
+  h2 {
+    margin-top: $lh / 3;
+    margin-bottom: $lh / 3;
+    font-size: 1rem;
+
+  }
+  p {
+    font-size: 1rem;
+  }
+
+  figure{
+    margin: $lh 0 $lh 0;
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+  }
+  figcaption{
+    font-size: 1rem;
+  }
+
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 1px;
+
+    font-size: 1rem;
+    padding-top: $lh / 4;
+  }
+  a:hover, a:active{
+    color: blue;
+  }
+
+
+}
+
+.file{
+  margin: $lh /2 0;
+  display: block;
+  width: min-content;
+  text-decoration: none !important;
+  padding: $lh / 4 $lh;
+  border: 1.5px black solid;
+  text-align: center;
+  border-radius: $lh;
+}
+
+.file:hover, .file:active{
+  color: blue;
+  border: 1.5px blue solid;
+}

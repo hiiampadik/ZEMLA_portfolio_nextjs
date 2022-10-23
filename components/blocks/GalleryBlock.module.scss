@@ -1,0 +1,88 @@
+@import "../../styles/_variables.scss";
+
+.swiper{
+  width: 100%;
+  height: calc(100vh - $lh * 6.2);
+  padding: $lh 0 $lh * 2 0;
+
+
+  @media only screen and (max-width: $breakpoint-mobile-max) {
+    padding: 0;
+    padding-bottom: $lh * 1.5;
+    height: calc(100vh - $lh * 6);
+  }
+}
+
+.swiperBlock{
+
+
+}
+
+.swiperSlide {
+  padding: 0 $lh * 1.5;
+  padding-bottom: $lh * 1.5;
+  @media only screen and (max-width: $breakpoint-mobile-max) {
+    padding: $lh / 2;
+    
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.swiperButtonPrev {
+  position: absolute;
+  left: $lh * 0.5;
+  top: calc(50% - 2rem);
+}
+
+.swiperButtonNext {
+  position: absolute;
+  right: $lh * 0.5;
+  top: calc(50% - 2rem);
+
+  transform: rotate(180deg);
+}
+
+.swiperButton {
+  cursor: pointer;
+  // -webkit-mask-image : url('../../public/ui/arrow.svg');
+  // mask-image         : url('../../public/ui/arrow.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-color: var(--main-text-color);
+
+  height: 3rem;
+  width: 3rem;
+  z-index: 100;
+  border: none;
+}
+
+.swiperButtonPrevWide {
+  position: absolute;
+  z-index: 100;
+  border: none;
+  background: none;
+
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+}
+
+.swiperButtonNextWide {
+  position: absolute;
+  z-index: 100;
+  border: none;
+  background: none;
+
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+}

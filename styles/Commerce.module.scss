@@ -1,0 +1,26 @@
+@import "_variables.scss";
+
+.boundParent{
+  position: absolute;
+  top: calc($lh * 2.4);
+  height: calc(100vh - $lh * 2.4);
+  left: 0;
+  right: 0;
+}
+
+.commerceFigureContainer{
+  position: absolute;
+  top: $lh * 3;
+  left: $lh * 2;
+
+  transform: translate($lh, $lh);
+
+  cursor:grab;
+  z-index: 500;
+
+  max-height: 80vh;
+  img{
+    pointer-events: none;
+    display: block;
+  }
+}

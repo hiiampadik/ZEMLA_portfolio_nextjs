@@ -1,0 +1,17 @@
+@import '_variables.scss';
+
+.emojisContainer{
+  div{
+    position: fixed;
+
+    z-index: 100;
+    
+    font-family: var(--menufont);
+    font-weight: var(--menuweight);
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1em;
+
+    transition: 0.4s;
+  }
+}
