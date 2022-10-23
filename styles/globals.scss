@@ -85,7 +85,7 @@ body {
   padding: 0;
   margin: 0;
 
-  font-size: 30px;
+  font-size: 20px;
   text-rendering: optimizeLegibility;
   line-height: 1.38;
   /* font-smoothing: antialiased; */
@@ -130,9 +130,10 @@ figure {
 
 /* Themes */
 :root {
-    --menufont: NeueBit, Helvetica, Arial, sans-serif;
+  --menufont: NeueMontreal, Helvetica, Arial, sans-serif;
   --menuweight: 500;
-  --menusize: 1.1em;
+  --menusize: 1rem;
+
 
   --borderradius: calc(0.3rem); 
 
