@@ -3,7 +3,6 @@ import Layout from "../components/Layout";
 
 import BlockContent from "../components/BlockContent";
 
-
 import Draggable from "react-draggable";
 
 import Link from "next/link";
@@ -16,18 +15,17 @@ export default function Svatba(svatba) {
   const [gallery, setGallery] = useState(null);
   const [zIndexes, setZIndexes] = useState(null);
 
-
+  useEffect(() => {
+    setTheme("highTech");
+  }, []);
 
   return (
     <Layout>
       <div className={styles.svatbaWrap}>
-      <div className={styles.svatbaContainer}>
-        <BlockContent
-          blocks={svatba.text}
-          noLanguage
-        />
+        <div className={styles.svatbaContainer}>
+          <BlockContent blocks={svatba.text} noLanguage />
         </div>
-        </div>
+      </div>
     </Layout>
   );
 }
