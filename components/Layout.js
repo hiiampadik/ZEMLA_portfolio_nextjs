@@ -12,6 +12,7 @@ import { useTheme } from "next-themes";
 
 export default function Layout({ children }) {
   const { theme, setTheme } = useTheme();
+  const [showPage, setShowPage] = useState(true);
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -20,7 +21,9 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      console.log(window.location);
+      if (window.location.host === "www.zem.la") {
+        setShowPage(false);
+      }
     }
   }, []);
 
@@ -50,7 +53,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header />
-      {getContent()}
+      {showPage ? getContent() : ""}
     </div>
   );
 }
