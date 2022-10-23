@@ -33,6 +33,7 @@ export default function TopMenu(props) {
 
   return (
     <nav>
+      {console.log(router)}
       {showMenu ? (
         <MenuWindow
           handleQuality={() => handleQuality()}
@@ -79,10 +80,10 @@ export default function TopMenu(props) {
 function ContainerMenu(props) {
   return (
     <div className={styles.nav}>
-      <div
-        className={`${styles.navLeftContainer} `}
-      >
+      <div className={`${styles.navLeftContainer} `}>
+        <Link href={"/"} locale={props.router.locale}>
           Petr Žemla
+        </Link>
       </div>
 
       <div className={styles.navCenterContainer}>
