@@ -18,6 +18,12 @@ export default function Layout({ children }) {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      console.log(window.location);
+    }
+  }, []);
+
   const handleQuality = (newTheme) => {
     if (newTheme == "lowTech") {
       setTheme("lowTech");
