@@ -1,50 +1,94 @@
-import styles from "../../styles/Projects.module.scss";
-import window from "../../styles/About.module.scss";
+import styles from "../../styles/Article.module.scss";
 
 import BlockContent from "../../components/BlockContent";
-import GalleryBlock from "../../components/blocks/GalleryBlock";
-
-import Draggable from "react-draggable";
 
 import Layout from "../../components/Layout";
 import client from "../../client";
+import * as dayjs from "dayjs";
 
-import React, { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-
-import cs from "../../components/languages/cs";
-import en from "../../components/languages/en";
+import Figure from "../../components/Figure";
+import { useTheme } from "next-themes";
 
 export default function Article(article) {
   const router = useRouter();
-  const t = router.locale === "cs" ? cs : en;
-
-  const [gallery, setGallery] = useState(null);
   const { theme, setTheme } = useTheme();
 
-  const [showInfo, setShowInfo] = useState(false);
-
-  useEffect(() => {
-    if (theme === "highTech" && article?.galleryNormal != null) {
-      setGallery(article.galleryNormal);
-    } else if (theme == "lowTech" && article?.galleryLow != null) {
-      setGallery(article.galleryLow);
+  const getDate = () => {
+    const date = new Date(article._createdAt);
+    if (router.locale == "cs") {
+      return dayjs(date).format("DD. MM. YYYY");
+    } else {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
     }
-  }, [article, theme]);
+  };
+
+  const getContent = () => {
+    if (Object.keys(article).length !== 0) {
+      if (typeof article.en === "undefined" && router.locale === "en") {
+        return (
+          <>
+            <div className={styles.articleLanguageWarningContainer}>
+              <h1 className={styles.articleLanguageWarning}>
+                This article is available only in Czech.
+              </h1>
+            </div>
+            <div className={styles.articleTitleContainer}>
+              <h1>{article.title?.en}</h1>
+              <p>{getDate()}</p>
+            </div>
+            <div className={styles.articleFigure}>
+              <Figure image={getImage(article.images)} alt={""} />
+            </div>
+            <BlockContent blocks={article.cs} noLanguage />
+          </>
+        );
+      }
+      if (router.locale === "cs") {
+        return (
+          <>
+            <div className={styles.articleTitleContainer}>
+              <h1>{article.title?.cs}</h1>
+              <p>{getDate()}</p>
+            </div>
+            <div className={styles.articleFigure}>
+              <Figure image={getImage(article.images)} alt={""} />
+            </div>
+            <BlockContent blocks={article.cs} noLanguage />
+          </>
+        );
+      } else {
+        return (
+          <>
+            <div className={styles.articleTitleContainer}>
+              <h1>{article.title?.en}</h1>
+              <p>{getDate()}</p>
+            </div>
+            <div className={styles.articleFigure}>
+              <Figure image={getImage(article.images)} alt={""} />
+            </div>
+            <BlockContent blocks={article.en} noLanguage />
+          </>
+        );
+      }
+    }
+  };
+
+  const getImage = (images) => {
+    if (theme == "highTech" && images?.high != null) {
+      return images.high;
+    } else if (theme == "lowTech" && images?.low != null) {
+      return images.low;
+    }
+  };
 
   return (
     <Layout>
-
-      {console.log(article)}
-
-      <div className={styles.projectInfoContainer}>
-        <BlockContent
-          blocks={router.locale === "cs" ? article.cs : article.en}
-          noLanguage
-        />
-      </div>
-
+      <div className={styles.articleContainer}>{getContent()}</div>
     </Layout>
   );
 }

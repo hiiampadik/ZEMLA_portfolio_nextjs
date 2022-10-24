@@ -33,7 +33,6 @@ export default function TopMenu(props) {
 
   return (
     <nav>
-     
       {showMenu ? (
         <MenuWindow
           handleQuality={() => handleQuality()}
@@ -55,15 +54,13 @@ export default function TopMenu(props) {
 
       {router.pathname !== "/projects/[slug]" ? (
         <>
-          <a className={styles.navEmail} href="mailto:petr@zem.la">
-            petr@zem.la
-          </a>
-          <a
-            className={styles.navInstagram}
-            href="https://www.instagram.com/zem.la/"
-          >
-            Instagram
-          </a>
+          <div className={styles.navFooter}>
+            <a href="mailto:petr@zem.la">petr@zem.la</a>
+            <a href="https://www.instagram.com/zem.la/">Instagram</a>
+          </div>
+          <Link href={"/articles"} locale={router.locale}>
+            <a className={styles.navArticles}>{t.articles}</a>
+          </Link>
         </>
       ) : (
         ""
@@ -96,12 +93,9 @@ function ContainerMenu(props) {
         <Link href={"/films"} locale={props.router.locale}>
           {props.t.films}
         </Link>
-        <Link href={"/print"} locale={props.router.locale}>
+        {/* <Link href={"/print"} locale={props.router.locale}>
           {props.t.print}
-        </Link>
-        <Link href={"/articles"} locale={props.router.locale}>
-          {props.t.articles}
-        </Link>
+        </Link> */}
       </div>
 
       <button
@@ -144,9 +138,9 @@ function MenuWindow(props) {
         <Link href={"/films"} locale={router.locale}>
           {t.films}
         </Link>
-        <Link href={"/print"} locale={router.locale}>
+        {/* <Link href={"/print"} locale={router.locale}>
           {t.print}
-        </Link>
+        </Link> */}
         <Link href={"/articles"} locale={router.locale}>
           {t.articles}
         </Link>

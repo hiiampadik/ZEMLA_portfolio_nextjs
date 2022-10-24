@@ -5,12 +5,12 @@
   position: fixed;
   z-index: 100;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: $lh * 2.4;
+  left: $lh;
+  right: $lh;
+  height: $lh * 2;
 
   display: block;
-
+  border-bottom: 1.5px black solid;
 }
 
 .nav {
@@ -54,7 +54,7 @@
   gap: $lh;
 
   position: fixed;
-  top: $lh;
+  top: 1rem;
   left: $lh;
   line-height: 100%;
   z-index: 600;
@@ -74,7 +74,7 @@
 
 .navCenterContainer {
   position: fixed;
-  top: $lh;
+  top: 1rem;
   left: 50%;
   transform: translate(-50%);
   line-height: 100%;
@@ -102,7 +102,7 @@
     display: inline-block;
 
     position: fixed;
-    top: $lh;
+    top: 1rem;
     left: $lh;
 
     background-image: url(../public/ui/menu.svg);
@@ -118,7 +118,7 @@
   gap: $lh;
 
   position: fixed;
-  top: $lh;
+  top: 1rem;
   right: $lh;
   line-height: 100%;
   z-index: 600;
@@ -270,8 +270,9 @@
   transform: translate(-$lh / 4, -$lh / 4);
 }
 
-.navEmail,
-.navInstagram {
+
+.navArticles,
+.navFooter {
   font-family: var(--menufont);
   font-weight: var(--menuweight);
   font-size: var(--menusize);
@@ -282,37 +283,59 @@
   z-index: 700;
 }
 
-.navEmail {
+.navFooter {
   position: fixed;
   bottom: $lh;
   left: $lh;
-  @media only screen and (max-width: $breakpoint-largetablet-max) {
-    bottom: $lh * 2;
-  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $lh /4;
+
   @media only screen and (max-width: 400px) {
-    bottom: $lh * 1.5;
+    bottom: $lh / 1.5;
     left: $lh / 1.5;
+  }
+  a:hover, a:active{
+    color: blue;
   }
 }
 
-.navInstagram {
+.navArticles {
   position: fixed;
   bottom: $lh;
-  left: $lh * 10;
+  left: $lh * 12;
 
-  @media only screen and (max-width: $breakpoint-largetablet-max) {
-    left: $lh;
-    transform: translate(0%);
+  @media only screen and (max-width: $breakpoint-smallscreen-max) {
+    left: $lh * 10;
   }
-  @media only screen and (max-width: 400px) {
-    bottom: $lh / 2;
-    left: $lh / 1.5;
+
+  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+    display: none;
   }
 }
 
-.navEmail:hover,
-.navInstagram:hover,
-.navEmail:active,
-.navInstagram:active {
+.navArticles:before{
+  content: '';
+  border: 1.5px black solid;
+  height: $lh * 0.7;
+  width: $lh * 1.1;
+  position: absolute;
+  top: 45%;
+  left: -$lh * 1.5;
+  transform: translateY(-50%);
+
+  border-radius: var(--borderradius);
+
+  background-color: white;
+  background-image: url(../public/ui/menu.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 70% 70%;
+}
+
+.navArticles:hover,
+.navArticles:active {
   color: blue;
 }

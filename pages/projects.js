@@ -8,8 +8,12 @@ import client from "../client";
 import { useEffect, useState } from "react";
 
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
+
 
 export default function Projects(props) {
+  const router = useRouter();
+
   const [positions, setPositions] = useState(null);
   const { theme, setTheme } = useTheme();
   const [windowSize, setWindowSize] = useState(getWindowSize());
@@ -83,7 +87,7 @@ export default function Projects(props) {
                   className={styles.filmButtonContainer}
                   style={{ top: positions[i][0], left: positions[i][1] }}
                 >
-                  <h1>{project.title}</h1>
+                  <h1>{router.locale === "cs" ? project.title.cs : project.title.en}</h1>
                 </a>
               </Link>
             );

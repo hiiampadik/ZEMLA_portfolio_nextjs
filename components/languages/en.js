@@ -8,4 +8,7 @@ export default {
      clientTitle: 'Some of the clients I have worked for include:',
      articles: "Articles",
      print: "Print",
+     notavailable: "Not Available :(",
+     pieces: "pieces",
+     piece: "piece",
 };

@@ -1,39 +1,77 @@
-import styles from "../styles/Commerce.module.scss";
+import styles from "../styles/Print.module.scss";
 import Layout from "../components/Layout";
 import Figure from "../components/Figure";
+import BlockContent from "../components/BlockContent";
 
 import client from "../client";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
-export default function Print(commerce) {
+import cs from "../components/languages/cs";
+import en from "../components/languages/en";
+
+export default function Print(print) {
   const { theme, setTheme } = useTheme();
-  const [gallery, setGallery] = useState(null);
+  const router = useRouter();
+  const t = router.locale === "cs" ? cs : en;
 
-  useEffect(() => {
-    if (theme == "highTech" && commerce?.galleryNormal != null) {
-      setGallery(commerce.galleryNormal);
-    } else if (theme == "lowTech" && commerce?.galleryLow != null) {
-      setGallery(commerce.galleryLow);
+  const getImage = (image) => {
+    if (theme == "highTech" && image?.imageNormal != null) {
+      return image.imageNormal;
+    } else if (theme == "lowTech" && image?.imageLow != null) {
+      return image.imageLow;
     }
-  }, [commerce, theme]);
+  };
+
+  const getImageDescription = (image) => {
+    if (!image.available){
+      return (`${t.notavailable}`)
+    } else if (image.description === '1'){
+      return (`${image.description} ${t.piece}`)
+    } else {
+      return (`${image.description} ${t.pieces}`)
+    }
+
+
+  };
 
   return (
     <Layout>
-      {gallery?.map((image, i) => {
-        return <Figure image={image} alt={""} />;
-      })}
+      <div className={styles.printInfoContainer}>
+        <BlockContent
+          blocks={router.locale === "cs" ? print.cs : print.en}
+          noLanguage
+        />
+      </div>
+      {console.log(print)}
+      <div className={styles.printPhotoContainer}>
+        {print?.gallery?.map((image) => {
+          return (
+            <div>
+              <h1>{getImageDescription(image)}</h1>
+              <div
+                key={image._key}
+                className={`${styles.printPhotoWrap} ${
+                  !image.available ? styles.printPhotoAvailable : ""
+                }`}
+              >
+                <Figure image={getImage(image)} alt={""} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </Layout>
   );
 }
 
 export async function getStaticProps(context) {
-  const commerce = await client.fetch(
+  const print = await client.fetch(
     `
-    *[_id == "commerce"]  [0] {
+    *[_id == "print"]  [0] {
       ...,
-      "galleryNormal":galleryNormal[]{..., asset->{...}},
-      "galleryLow":galleryLow[]{..., asset->{...}},
+      "gallery":gallery[]{..., asset->{...}},
       }
     
     `,
@@ -42,7 +80,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      ...commerce,
+      ...print,
     },
     revalidate: 10,
   };

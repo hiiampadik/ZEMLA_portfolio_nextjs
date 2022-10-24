@@ -6,6 +6,9 @@ export default {
      languageSwitch: 'En',
      info: 'Anotace',
      clientTitle: "Mezi klienty, pro které jsem tvořil, například patří:",
-     articles: "Články",
+     articles: "Zápisky",
      print: "Tisk",
+     notavailable: "Už není :(",
+     pieces: "ks",
+     piece: "ks",
 };
