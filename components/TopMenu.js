@@ -19,32 +19,15 @@ export default function TopMenu(props) {
 
   const { theme, setTheme } = useTheme();
 
-  const handleQuality = () => {
-    if (theme === "lowTech") {
-      props.handleQuality("highTech");
-    } else if (theme === "highTech") {
-      props.handleQuality("lowTech");
-    }
-  };
-
   const handleMenu = () => {
     setShowMenu((i) => !i);
   };
 
   return (
     <nav>
-      {showMenu ? (
-        <MenuWindow
-          handleQuality={() => handleQuality()}
-          handleMenu={handleMenu}
-        />
-      ) : (
-        ""
-      )}
 
       <ContainerMenu
         handleMenu={handleMenu}
-        handleQuality={handleQuality}
         t={t}
         router={router}
         showMenu={showMenu}
@@ -113,10 +96,6 @@ function ContainerMenu(props) {
         </Link> */}
       </div>
 
-      <button
-        className={styles.navCenterMenu}
-        onClick={() => props.handleMenu()}
-      ></button>
 
       <div className={styles.navRightContainer}>
         <div
