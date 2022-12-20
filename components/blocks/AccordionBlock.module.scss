@@ -56,12 +56,14 @@
   margin-bottom: $lh;
 
   display: flex;
-  align-items: center;
-  gap: $lh/2;
-  row-gap: $lh;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: $lh * 0.2;
+  row-gap: $lh * 0.2;
   img {
-    max-width: $lh * 5;
-    max-height: $lh * 5;
+    max-width: $lh * 3;
+    height: $lh * 3;
+    object-fit: contain;
     border-radius: 0;
     margin: 0;
   }
@@ -70,5 +72,15 @@
     padding-bottom: 0;
     text-align: center;
     font-size: 0.8rem;
+  }
+
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $lh /4;
+    background-color: white;
+    border-radius: $lh * 0.5;
+    border: 1.5px black solid;
   }
 }
