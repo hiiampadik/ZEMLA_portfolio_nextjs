@@ -32,8 +32,6 @@ export default function Print(print) {
     } else {
       return (`${image.description} ${t.pieces}`)
     }
-
-
   };
 
   return (
