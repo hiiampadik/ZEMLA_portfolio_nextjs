@@ -1,6 +1,6 @@
 @import "../../styles/_variables.scss";
 
-.swiper{
+.swiper {
   width: 100%;
   height: calc(100vh - $lh * 6.2);
   padding: $lh 0 $lh * 2 0;
@@ -13,17 +13,15 @@
   }
 }
 
-.swiperBlock{
-
-
-}
+.swiperBlock {}
 
 .swiperSlide {
   padding: 0 $lh * 1.5;
   padding-bottom: $lh * 1.5;
+
   @media only screen and (max-width: $breakpoint-mobile-max) {
     padding: $lh / 2;
-    
+
   }
 
   img {
@@ -31,6 +29,9 @@
     height: 100%;
     object-fit: contain;
   }
+
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .swiperButtonPrev {
@@ -47,20 +48,6 @@
   transform: rotate(180deg);
 }
 
-.swiperButton {
-  cursor: pointer;
-  // -webkit-mask-image : url('../../public/ui/arrow.svg');
-  // mask-image         : url('../../public/ui/arrow.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  background-color: var(--main-text-color);
-
-  height: 3rem;
-  width: 3rem;
-  z-index: 100;
-  border: none;
-}
-
 .swiperButtonPrevWide {
   position: absolute;
   z-index: 100;
@@ -71,7 +58,7 @@
   top: 0;
   height: 100%;
   width: 50%;
-  cursor: pointer;
+  cursor: w-resize;
 }
 
 .swiperButtonNextWide {
@@ -84,5 +71,5 @@
   top: 0;
   height: 100%;
   width: 50%;
-  cursor: pointer;
+  cursor: e-resize;
 }

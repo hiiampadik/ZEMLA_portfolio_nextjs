@@ -29,19 +29,18 @@
 
 .homeTypewriter{
   position: fixed;
-  top: 50%;
+  top: 1rem;
   left: 50%;
   width: 100%;
   transform: translate(-50%);
 
   font-family: var(--menufont);
   font-weight: var(--menuweight);
-  font-size: 2rem;
+  font-size: var(--menusize);
   line-height: 1em;
-  z-index: 100;
-  color: white;
+  z-index: 600;
+  color: black;
   text-align: center;
-  mix-blend-mode: difference;
 }
 
 .homeLinks{

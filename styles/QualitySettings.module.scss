@@ -26,41 +26,6 @@
   }
 }
 
-.qualityTitle {
-  position: fixed;
-  z-index: 1100;
-  top: $lh/2;
-  left: $lh;
-
-  color: black;
-
-  font-family: NeueMontreal, Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1em;
-}
-
-.qualityLanguage {
-  position: fixed;
-  z-index: 1100;
-  top: $lh/2;
-  right: $lh;
-
-  color: black;
-
-  font-family: NeueMontreal, Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1em;
-
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
 .qualityPhoto {
   position: absolute;
   top: 45%;
@@ -162,19 +127,25 @@
   gap: $lh;
 
   position: fixed;
-  top: $lh;
+  top: 1rem;
   left: $lh;
   line-height: 100%;
   z-index: 600;
+
+  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+    left: 50%;
+    transform: translate(-50%);
+  }
 }
 
 .qualityRight {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   gap: $lh;
 
   position: fixed;
-  top: $lh;
+  top: 1rem;
   right: $lh;
   line-height: 100%;
+  z-index: 600;
 }

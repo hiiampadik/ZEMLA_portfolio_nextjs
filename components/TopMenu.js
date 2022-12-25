@@ -104,13 +104,18 @@ function ContainerMenu(props) {
       ></button>
 
       <div className={styles.navRightContainer}>
-        <button
+        <div
           className={styles.navQuality}
           onClick={() => props.handleQuality()}
-        ></button>
+        >
+          <div className={styles.navQualityBg}></div>
+          <p className={styles.navQualityText}>
+            {props.theme === "lowTech" ? "LOW" : "HIGH"}
+          </p>
+        </div>
         <Link
           href={props.router.asPath}
-          locale={props.languageButton == "en" ? "en" : "cs"}
+          locale={props.languageButton == "en" ? "En" : "Cs"}
         >
           {props.languageButton}
         </Link>

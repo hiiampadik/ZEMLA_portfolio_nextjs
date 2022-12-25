@@ -12,8 +12,6 @@ import { Autoplay, EffectFade } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import Typewriter from "../components/Typewriter";
-
 export default function Home(props) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
@@ -29,7 +27,6 @@ export default function Home(props) {
 
   return (
     <Layout>
-      <Typewriter />
 
       <Swiper
         loop={true}

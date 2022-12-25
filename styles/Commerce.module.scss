@@ -15,12 +15,11 @@
 
   transform: translate($lh, $lh);
 
-  cursor:grab;
+  cursor:grab !important;
   z-index: 500;
 
   max-height: 80vh;
   img{
-    pointer-events: none;
     display: block;
   }
 }

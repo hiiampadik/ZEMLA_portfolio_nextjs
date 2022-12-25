@@ -61,8 +61,8 @@
   gap: $lh * 0.2;
   row-gap: $lh * 0.2;
   img {
-    max-width: $lh * 3;
-    height: $lh * 3;
+    max-width: $lh * 4;
+    height: $lh * 2.5;
     object-fit: contain;
     border-radius: 0;
     margin: 0;
@@ -78,9 +78,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: $lh /4;
+    padding: $lh /2;
+    padding-bottom: $lh /4;
     background-color: white;
     border-radius: $lh * 0.5;
     border: 1.5px black solid;
+    gap: $lh * 0.3;
+
   }
 }

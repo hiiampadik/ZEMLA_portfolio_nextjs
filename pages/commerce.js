@@ -49,7 +49,7 @@ export default function Commerce(commerce) {
               key={image._key}
               bounds="parent"
               defaultPosition={{ x: i * 20 - 20, y: i * 20 - 20 }}
-              onMouseDown={() => changeZ(i)}
+              onDragStart={() => changeZ(i)}
               onTouchStart={() => changeZ(i)}
             >
               <div

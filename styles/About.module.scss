@@ -64,7 +64,7 @@
 }
 
 .aboutContent {
-  padding: calc($lh / 3);
+  padding: calc($lh / 1.5);
   padding-bottom: 6px;
   overflow-y: scroll;
   height: calc(100% - $lh * 1.5);
@@ -73,6 +73,10 @@
     margin: $lh/2 0;
     border-radius: var(--borderradius);
     max-width: 100%;
+  }
+
+  p{
+    max-width: 550px;
   }
 }
 
@@ -97,6 +101,7 @@
   gap: $lh/2;
   width: 100%;
   margin: 0;
+  margin-bottom: $lh * 1.5;
   @media only screen and (max-width: $breakpoint-mobile-max) {
     gap: $lh/4;
   }
