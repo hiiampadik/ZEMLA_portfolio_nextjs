@@ -40,7 +40,6 @@ export default function Projects(props) {
   return (
     <Layout>
       <div className={styles.articlesContainer}>
-        {console.log(props.articles)}
         {props.articles?.map((article, i) => {
           const slug = article._id ? article.slug?.current : "";
           return (

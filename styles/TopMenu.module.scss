@@ -10,7 +10,10 @@
   height: $lh * 2;
 
   display: block;
-  // border-bottom: 1.5px black solid;
+}
+
+.navBgBorder{
+  border-bottom: 1.5px black solid;
 }
 
 .nav {
@@ -59,7 +62,7 @@
   line-height: 100%;
   z-index: 600;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     left: 50%;
     transform: translate(-50%);
   }
@@ -84,7 +87,7 @@
   justify-content: flex-end;
   gap: $lh;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     display: none;
   }
 }
@@ -93,7 +96,7 @@
   display: none;
   z-index: 600;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     cursor: pointer;
     border: 0;
     background: none;

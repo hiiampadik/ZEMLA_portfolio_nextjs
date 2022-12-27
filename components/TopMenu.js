@@ -58,9 +58,9 @@ export default function TopMenu(props) {
             <a href="mailto:petr@zem.la">petr@zem.la</a>
             <a href="https://www.instagram.com/zem.la/">Instagram</a>
           </div>
-          <Link href={"/articles"} locale={router.locale}>
+          {/* <Link href={"/articles"} locale={router.locale}>
             <a className={styles.navArticles}>{t.articles}</a>
-          </Link>
+          </Link> */}
         </>
       ) : (
         ""
@@ -75,6 +75,11 @@ export default function TopMenu(props) {
 }
 
 function ContainerMenu(props) {
+
+  const getClassBorder = () => {
+    console.log(props.router);
+  }
+
   return (
     <div className={styles.nav}>
       <div className={`${styles.navLeftContainer} `}>
@@ -96,6 +101,9 @@ function ContainerMenu(props) {
         {/* <Link href={"/print"} locale={props.router.locale}>
           {props.t.print}
         </Link> */}
+        <Link href={"/articles"} locale={props.router.locale}>
+          {props.t.articles}
+        </Link>
       </div>
 
       <button
@@ -110,18 +118,18 @@ function ContainerMenu(props) {
         >
           <div className={styles.navQualityBg}></div>
           <p className={styles.navQualityText}>
-            {props.theme === "lowTech" ? "LOW" : "HIGH"}
+            {props.theme === "lowTech" ? "HIGH" : "LOW"}
           </p>
         </div>
         <Link
           href={props.router.asPath}
-          locale={props.languageButton == "en" ? "En" : "Cs"}
+          locale={props.languageButton == "en" ? "en" : "cs"}
         >
           {props.languageButton}
         </Link>
       </div>
 
-      <div className={styles.navBg}></div>
+      <div className={`${styles.navBg} ${getClassBorder()}`}></div>
     </div>
   );
 }

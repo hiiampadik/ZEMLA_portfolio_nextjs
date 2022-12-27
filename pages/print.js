@@ -42,7 +42,6 @@ export default function Print(print) {
           noLanguage
         />
       </div>
-      {console.log(print)}
       <div className={styles.printPhotoContainer}>
         {print?.gallery?.map((image) => {
           return (
