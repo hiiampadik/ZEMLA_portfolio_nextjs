@@ -29,10 +29,8 @@
 
 .homeTypewriter{
   position: fixed;
-  top: 1rem;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%);
+  top: 2.1rem;
+  left: $lh;
 
   font-family: var(--menufont);
   font-weight: var(--menuweight);
@@ -40,7 +38,7 @@
   line-height: 1em;
   z-index: 600;
   color: black;
-  text-align: center;
+  text-align: left;
 }
 
 .homeLinks{

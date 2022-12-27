@@ -17,15 +17,15 @@ export default function Commerce(commerce) {
     if (theme == "highTech" && commerce?.galleryNormal != null) {
       setGallery(commerce.galleryNormal);
       let z = [];
-      for (let i = 0; i < commerce.galleryNormal.length; i++) {
-        z = [...z, i + 10];
+      for (let i = commerce.galleryNormal.length; i > 0; i--) {
+        z = [...z, i];
       }
       setZIndexes(z);
     } else if (theme == "lowTech" && commerce?.galleryLow != null) {
       setGallery(commerce.galleryLow);
       let z = [];
-      for (let i = 0; i < commerce.galleryLow.length; i++) {
-        z = [...z, i + 10];
+      for (let i = commerce.galleryLow.length; i > 0; i--) {
+        z = [...z, i];
       }
       setZIndexes(z);
     }
@@ -33,10 +33,12 @@ export default function Commerce(commerce) {
 
   const changeZ = (index) => {
     let newZ = [...zIndexes];
+
     for (let i = 0; i < newZ.length; i++) {
       newZ[i] = newZ[i] - 1;
     }
-    newZ[index] = 10 + (newZ.length - 1);
+    newZ[index] = 1 + (newZ.length - 1);
+
     setZIndexes(newZ)
   };
 
@@ -48,9 +50,8 @@ export default function Commerce(commerce) {
             <Draggable
               key={image._key}
               bounds="parent"
-              defaultPosition={{ x: i * 20 - 20, y: i * 20 - 20 }}
-              onDragStart={() => changeZ(i)}
-              onTouchStart={() => changeZ(i)}
+              defaultPosition={{ x: Math.floor(Math.random() * 100), y: Math.floor(Math.random() * 200) }}
+              onStart={() => changeZ(i)}
             >
               <div
                 className={styles.commerceFigureContainer}               

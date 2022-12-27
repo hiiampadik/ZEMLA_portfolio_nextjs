@@ -10,16 +10,18 @@
 
 .commerceFigureContainer{
   position: absolute;
-  top: $lh * 3;
-  left: $lh * 2;
+  top: 0;
+  left: $lh;
 
   transform: translate($lh, $lh);
 
   cursor:grab !important;
   z-index: 500;
 
-  max-height: 80vh;
+
+  border: 2px white solid;
   img{
     display: block;
+    pointer-events: none;
   }
 }

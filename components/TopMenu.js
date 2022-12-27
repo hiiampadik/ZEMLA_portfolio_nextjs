@@ -75,10 +75,17 @@ export default function TopMenu(props) {
 }
 
 function ContainerMenu(props) {
-
   const getClassBorder = () => {
-    console.log(props.router);
-  }
+    if (
+      props.router.pathname === "/articles" ||
+      props.router.pathname === "/articles/[slug]" ||
+      props.router.pathname === "/projects/[slug]"
+    ) {
+      return styles.navBgBorder
+    } else {
+      return ''
+    }
+  };
 
   return (
     <div className={styles.nav}>

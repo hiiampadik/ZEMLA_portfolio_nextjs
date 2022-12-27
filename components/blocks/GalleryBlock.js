@@ -1,25 +1,19 @@
-import styles from './GalleryBlock.module.scss'
-import Figure from '../Figure'
+import styles from "./GalleryBlock.module.scss";
+import Figure from "../Figure";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Scrollbar } from "swiper";
 import { useRef, useState, useEffect } from "react";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-
-
-
 export default function GalleryBlock(props) {
-
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
-
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
 
   return (
-
       <Swiper
         pagination={{
           type: "fraction",
@@ -41,13 +35,16 @@ export default function GalleryBlock(props) {
             <SwiperSlide key={index} className={styles.swiperSlide}>
               <Figure image={el.asset} />
             </SwiperSlide>
-          )
+          );
         })}
-          <>
-            <button className={styles.swiperButtonPrevWide} ref={navigationPrevRef}></button>
-            <button className={styles.swiperButtonNextWide} ref={navigationNextRef}></button>
-          </>
+        <button
+          className={styles.swiperButtonPrevWide}
+          ref={navigationPrevRef}
+        ></button>
+        <button
+          className={styles.swiperButtonNextWide}
+          ref={navigationNextRef}
+        ></button>
       </Swiper>
-  )
+  );
 }
-
