@@ -71,7 +71,7 @@
 
 .articleContainer {
   max-width: 600px;
-  margin: $lh auto $lh * 5 auto;
+  margin: 0 auto $lh * 5 auto;
   padding: 0 $lh;
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     margin-top: 0;
@@ -81,7 +81,7 @@
 
 .articleTitleContainer{
 
-  margin-top: $lh;
+  margin-top: $lh * 2;
   margin-bottom: $lh * 1.5;
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     margin-top: 0;

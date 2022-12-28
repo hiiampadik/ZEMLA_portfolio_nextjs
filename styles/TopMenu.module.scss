@@ -1,7 +1,6 @@
 @import "_variables.scss";
 
 .navBg {
-  background-color: #fcfcfc;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -13,6 +12,7 @@
 }
 
 .navBgBorder{
+  background-color: #fcfcfc;
   border-bottom: 1.5px black solid;
 }
 

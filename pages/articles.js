@@ -30,12 +30,11 @@ export default function Projects(props) {
 
   const getImage = (images) => {
     if (theme == "highTech" && images?.high != null) {
-      return (images.high)
+      return images.high;
     } else if (theme == "lowTech" && images?.low != null) {
-      return (images.low)
+      return images.low;
     }
-  }
-
+  };
 
   return (
     <Layout>
@@ -56,7 +55,13 @@ export default function Projects(props) {
                 </h1>
                 <p>{getDate(article)}</p>
                 <div className={styles.articlesListArticleFigure}>
-                  <Figure image={getImage(article.images)} alt={""} />
+                  <Figure
+                    image={getImage(article.images)}
+                    alt={""}
+                    sizes={
+                      "(min-width: 600px) 600px, calc(100vw - 1.42rem * 2)"
+                    }
+                  />
                 </div>
               </a>
             </Link>

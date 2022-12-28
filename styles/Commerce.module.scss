@@ -1,6 +1,6 @@
 @import "_variables.scss";
 
-.boundParent{
+.boundParent {
   position: absolute;
   top: calc($lh * 2.4);
   height: calc(100vh - $lh * 2.4);
@@ -8,20 +8,42 @@
   right: 0;
 }
 
-.commerceFigureContainer{
+.commerceFigureContainer {
   position: absolute;
   top: 0;
   left: $lh;
-
-  transform: translate($lh, $lh);
-
-  cursor:grab !important;
   z-index: 500;
 
+  cursor: grab !important;
+  // border: 2px white solid;
 
-  border: 2px white solid;
-  img{
+  img {
     display: block;
     pointer-events: none;
+    transition: 0.5s;
+
+    max-height: calc(100vh - $lh * 13);
+    max-width: calc(35vw - $lh * 3);
+
+    @media only screen and (max-width: $breakpoint-smallscreen-max) {
+      max-height: calc(95vh - $lh * 13);
+      max-width: calc(40vw - $lh * 3);
+    }
+
+    @media only screen and (max-width: $breakpoint-largetablet-max) {
+      max-height: calc(90vh - $lh * 13);
+      max-width: calc(50vw - $lh * 3);
+    }
+
+    @media only screen and (max-width: $breakpoint-smalltablet-max) {
+      max-height: calc(70vh - $lh * 13);
+      max-width: calc(70vw - $lh * 3);
+    }
+  }
+}
+
+.commerceFigureContainer:hover, .commerceFigureContainer:active, .commerceFigureContainer:focus {
+  img {
+    filter: drop-shadow(0px 0px 13px rgba(0, 0, 0, 0.6));
   }
 }

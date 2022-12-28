@@ -25,12 +25,12 @@ export default function Print(print) {
   };
 
   const getImageDescription = (image) => {
-    if (!image.available){
-      return (`${t.notavailable}`)
-    } else if (image.description === '1'){
-      return (`${image.description} ${t.piece}`)
+    if (!image.available) {
+      return `${t.notavailable}`;
+    } else if (image.description === "1") {
+      return `${image.description} ${t.piece}`;
     } else {
-      return (`${image.description} ${t.pieces}`)
+      return `${image.description} ${t.pieces}`;
     }
   };
 
@@ -53,7 +53,17 @@ export default function Print(print) {
                   !image.available ? styles.printPhotoAvailable : ""
                 }`}
               >
-                <Figure image={getImage(image)} alt={""} />
+                <Figure
+                  image={getImage(image)}
+                  alt={""}
+                  sizes={`
+                    (min-width: 2560px) calc(100vw / 5 - 6 * 1.42rem),
+                    (min-width: 1400px) calc(100vw / 4 - 5 * 1.42rem),
+                    (min-width: 1025px) calc(100vw / 3 - 4 * 1.42rem),
+                    (min-width: 768px) calc(100vw / 2 - 3 * 1.42rem),
+                    calc(100vw - 2 * 1.42rem)
+                    `}
+                />
               </div>
             </div>
           );
