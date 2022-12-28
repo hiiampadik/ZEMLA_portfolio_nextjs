@@ -182,7 +182,7 @@
 .menuWindowContainer {
   display: none;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;

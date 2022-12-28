@@ -66,7 +66,6 @@ export default function Commerce(commerce) {
                   image={image}
                   alt={""}
                   sizes={`
-                    (min-width: 1400px) calc(35vw - 1.43rem * 13), 
                     (min-width: 1025px) calc(40vw - 1.43rem * 3), 
                     (min-width: 768px) calc(50vw - 1.43rem * 3), 
                     calc(70vw - 1.43rem * 3) 
