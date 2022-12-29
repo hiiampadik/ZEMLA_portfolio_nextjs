@@ -66,14 +66,7 @@ export default function Layout({ children }) {
         <main className={styles.main}>{children}</main>
       ) : (
         <>
-          {showPage ? (
-            getContent()
-          ) : (
-            <>
-              <div className={styles.work}>Work in Progress</div>
-              <div className={styles.workPz}>Petr Žemla (petr@zem.la)</div>
-            </>
-          )}
+            {getContent()}
         </>
       )}
     </div>
