@@ -12,6 +12,7 @@ import { useTheme } from "next-themes";
 
 export default function Layout({ children }) {
   const { theme, setTheme } = useTheme();
+  const [showPage, setShowPage] = useState(true);
   const [showSvatba, setShowSvatba] = useState(false);
 
   const [mounted, setMounted] = useState(false);
@@ -19,16 +20,41 @@ export default function Layout({ children }) {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (
+        window.location.pathname == "/cs/svatba" ||
+        window.location.pathname == "/en/svatba" ||
+        window.location.pathname == "/svatba"
+      ) {
+        setShowSvatba(true);
+      }
+      if (window.location.host === "www.zem.la") {
+        setShowPage(false);
+      }
+    }
+  }, []);
+
+  const handleQuality = (newTheme) => {
+    if (newTheme == "lowTech") {
+      setTheme("lowTech");
+    } else if (newTheme == "highTech") {
+      setTheme("highTech");
+    }
+  };
 
   const getContent = () => {
     if (mounted) {
+      if (theme === "lowTech" || theme === "highTech") {
         return (
           <div>
-            <TopMenu  />
+            <TopMenu handleQuality={handleQuality} />
             <main className={styles.main}>{children}</main>
           </div>
         );
-
+      } else {
+        return <QualitySettings handleQuality={handleQuality} />;
+      }
     }
   };
 
@@ -40,8 +66,14 @@ export default function Layout({ children }) {
         <main className={styles.main}>{children}</main>
       ) : (
         <>
-            {getContent()}
-          
+          {showPage ? (
+            getContent()
+          ) : (
+            <>
+              <div className={styles.work}>Work in Progress</div>
+              <div className={styles.workPz}>Petr Žemla (petr@zem.la)</div>
+            </>
+          )}
         </>
       )}
     </div>
