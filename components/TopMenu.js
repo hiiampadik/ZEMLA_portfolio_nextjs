@@ -108,9 +108,9 @@ function ContainerMenu(props) {
         {/* <Link href={"/print"} locale={props.router.locale}>
           {props.t.print}
         </Link> */}
-        <Link href={"/articles"} locale={props.router.locale}>
+        {/* <Link href={"/articles"} locale={props.router.locale}>
           {props.t.articles}
-        </Link>
+        </Link> */}
       </div>
 
       <button
@@ -161,9 +161,9 @@ function MenuWindow(props) {
         {/* <Link href={"/print"} locale={router.locale}>
           {t.print}
         </Link> */}
-        <Link href={"/articles"} locale={router.locale}>
+        {/* <Link href={"/articles"} locale={router.locale}>
           {t.articles}
-        </Link>
+        </Link> */}
       </div>
 
       <div
