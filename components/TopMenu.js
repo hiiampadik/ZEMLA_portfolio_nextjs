@@ -48,9 +48,9 @@ export default function TopMenu(props) {
       ) : (
         ""
       )}
-      <div className={styles.navAbout} onClick={() => setShowAbout(!showAbout)}>
+      {/* <div className={styles.navAbout} onClick={() => setShowAbout(!showAbout)}>
         <p>{t.about}</p>
-      </div>
+      </div> */}
 
       {showAbout ? <About handleClose={() => setShowAbout(false)} /> : ""}
     </nav>
@@ -91,22 +91,14 @@ function ContainerMenu(props) {
         {/* <Link href={"/print"} locale={props.router.locale}>
           {props.t.print}
         </Link> */}
-        {/* <Link href={"/articles"} locale={props.router.locale}>
-          {props.t.articles}
-        </Link> */}
       </div>
 
 
       <div className={styles.navRightContainer}>
-        <div
+        <button
           className={styles.navQuality}
           onClick={() => props.handleQuality()}
-        >
-          <div className={styles.navQualityBg}></div>
-          <p className={styles.navQualityText}>
-            {props.theme === "lowTech" ? "HIGH" : "LOW"}
-          </p>
-        </div>
+        ></button>
         <Link
           href={props.router.asPath}
           locale={props.languageButton == "en" ? "en" : "cs"}
