@@ -1,7 +1,6 @@
 @import "_variables.scss";
 
-.navBg{
-  background-color: #fcfcfc;
+.navBg {
   position: fixed;
   z-index: 100;
   top: 0;
@@ -10,7 +9,11 @@
   height: $lh * 2;
 
   display: block;
-  // border-bottom: 1.5px black solid;
+}
+
+.navBgBorder{
+  background-color: #fcfcfc;
+  border-bottom: 1.5px black solid;
 }
 
 .nav {
@@ -59,7 +62,7 @@
   line-height: 100%;
   z-index: 600;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     left: 50%;
     transform: translate(-50%);
   }
@@ -84,7 +87,7 @@
   justify-content: flex-end;
   gap: $lh;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     display: none;
   }
 }
@@ -93,7 +96,7 @@
   display: none;
   z-index: 600;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     cursor: pointer;
     border: 0;
     background: none;
@@ -128,23 +131,50 @@
     border: 0;
     background: none;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: $lh * 0.3;
+  }
 
-    height: 1rem;
-    width: 1rem;
+  .navQualityText {
+    margin: 0;
+    font-family: var(--menufont);
+    font-weight: var(--menuweight);
+    font-size: var(--menusize);
+    @media only screen and (max-width: $breakpoint-mobile-max) {
+      display: none;
+    }
+  }
+
+  .navQualityBg {
+    height: 0.8rem;
+    width: 0.8rem;
 
     background-image: url(../public/ui/gear.svg);
     background-repeat: no-repeat;
     transition: 0.6s;
+    @media only screen and (max-width: $breakpoint-mobile-max) {
+      height: 1rem;
+      width: 1rem;
+  
+    }
   }
 
   a {
     width: $lh;
+    font-family: var(--menufont);
+    font-weight: var(--menuweight);
+    font-size: var(--menusize);
   }
 }
 
 .navQuality:hover,
 .navQuality:active {
-  transform: rotate(180deg);
+  .navQualityBg {
+    transform: rotate(180deg);
+  }
+
 }
 
 // External Window
@@ -152,7 +182,7 @@
 .menuWindowContainer {
   display: none;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -237,9 +267,10 @@
   bottom: $lh;
   right: $lh;
 
-  background: white;
-  border: 1.5px black solid;
-  padding: calc($lh * 0.2) calc($lh * 0.4);
+  background: black;
+  color: white;
+  border: 1.5px white solid;
+  padding: calc($lh * 0.3) calc($lh * 0.5);
   z-index: 700;
   cursor: pointer;
 
@@ -256,6 +287,7 @@
     line-height: 1em;
     margin: 0;
   }
+
   filter: drop-shadow(0 0 0 black);
 
   @media only screen and (max-width: 400px) {
@@ -297,7 +329,9 @@
     bottom: $lh / 1.5;
     left: $lh / 1.5;
   }
-  a:hover, a:active{
+
+  a:hover,
+  a:active {
     color: blue;
   }
 }
@@ -316,7 +350,7 @@
   }
 }
 
-.navArticles:before{
+.navArticles:before {
   content: '';
   border: 1.5px black solid;
   height: $lh * 0.7;

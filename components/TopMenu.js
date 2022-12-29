@@ -41,6 +41,9 @@ export default function TopMenu(props) {
             <a href="mailto:petr@zem.la">petr@zem.la</a>
             <a href="https://www.instagram.com/zem.la/">Instagram</a>
           </div>
+          {/* <Link href={"/articles"} locale={router.locale}>
+            <a className={styles.navArticles}>{t.articles}</a>
+          </Link> */}
         </>
       ) : (
         ""
@@ -55,6 +58,18 @@ export default function TopMenu(props) {
 }
 
 function ContainerMenu(props) {
+  const getClassBorder = () => {
+    if (
+      props.router.pathname === "/articles" ||
+      props.router.pathname === "/articles/[slug]" ||
+      props.router.pathname === "/projects/[slug]"
+    ) {
+      return styles.navBgBorder
+    } else {
+      return ''
+    }
+  };
+
   return (
     <div className={styles.nav}>
       <div className={`${styles.navLeftContainer} `}>
@@ -64,11 +79,26 @@ function ContainerMenu(props) {
       </div>
 
       <div className={styles.navCenterContainer}>
-
+        <Link href={"/projects"} locale={props.router.locale}>
+          {props.t.projects}
+        </Link>
+        <Link href={"/commerce"} locale={props.router.locale}>
+          {props.t.commerce}
+        </Link>
+        <Link href={"/films"} locale={props.router.locale}>
+          {props.t.films}
+        </Link>
+        {/* <Link href={"/print"} locale={props.router.locale}>
+          {props.t.print}
+        </Link> */}
       </div>
 
 
       <div className={styles.navRightContainer}>
+        <button
+          className={styles.navQuality}
+          onClick={() => props.handleQuality()}
+        ></button>
         <Link
           href={props.router.asPath}
           locale={props.languageButton == "en" ? "en" : "cs"}
@@ -77,7 +107,7 @@ function ContainerMenu(props) {
         </Link>
       </div>
 
-      <div className={styles.navBg}></div>
+      <div className={`${styles.navBg} ${getClassBorder()}`}></div>
     </div>
   );
 }
@@ -102,9 +132,9 @@ function MenuWindow(props) {
         {/* <Link href={"/print"} locale={router.locale}>
           {t.print}
         </Link> */}
-        <Link href={"/articles"} locale={router.locale}>
+        {/* <Link href={"/articles"} locale={router.locale}>
           {t.articles}
-        </Link>
+        </Link> */}
       </div>
 
       <div

@@ -82,9 +82,10 @@ export default function About(props) {
                 {data?.file.description}
               </a>
             </div>
-            <AccordionBlock title={t.clientTitle} images={data?.clients} />
 
             {getContent()}
+            <AccordionBlock title={t.clientTitle} images={data?.clients} />
+
           </div>
         </div>
       </Draggable>

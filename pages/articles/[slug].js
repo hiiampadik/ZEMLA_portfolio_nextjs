@@ -42,7 +42,11 @@ export default function Article(article) {
               <p>{getDate()}</p>
             </div>
             <div className={styles.articleFigure}>
-              <Figure image={getImage(article.images)} alt={""} />
+              <Figure
+                image={getImage(article.images)}
+                alt={""}
+                sizes={"(min-width: 768px) 70vw, (min-width: 576px) 80vw, 95vw"}
+              />
             </div>
             <BlockContent blocks={article.cs} noLanguage />
           </>
@@ -56,7 +60,11 @@ export default function Article(article) {
               <p>{getDate()}</p>
             </div>
             <div className={styles.articleFigure}>
-              <Figure image={getImage(article.images)} alt={""} />
+              <Figure
+                image={getImage(article.images)}
+                alt={""}
+                sizes={"(min-width: 768px) 70vw, (min-width: 576px) 80vw, 95vw"}
+              />
             </div>
             <BlockContent blocks={article.cs} noLanguage />
           </>
@@ -69,7 +77,11 @@ export default function Article(article) {
               <p>{getDate()}</p>
             </div>
             <div className={styles.articleFigure}>
-              <Figure image={getImage(article.images)} alt={""} />
+              <Figure
+                image={getImage(article.images)}
+                alt={""}
+                sizes={"(min-width: 768px) 70vw, (min-width: 576px) 80vw, 95vw"}
+              />
             </div>
             <BlockContent blocks={article.en} noLanguage />
           </>

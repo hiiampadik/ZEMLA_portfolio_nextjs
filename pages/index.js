@@ -12,8 +12,6 @@ import { Autoplay, EffectFade } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import Typewriter from "../components/Typewriter";
-
 export default function Home(props) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
@@ -29,8 +27,6 @@ export default function Home(props) {
 
   return (
     <Layout>
-      <Typewriter />
-
       <Swiper
         loop={true}
         className={styles.homeSwiper}
@@ -48,13 +44,14 @@ export default function Home(props) {
         {gallery?.map((image) => {
           return (
             <SwiperSlide key={image._key} className={styles.swiperSlide}>
-              <Figure image={image} />
+              <Figure
+                image={image}
+                sizes={"(min-width: 768px) 70vw, (min-width: 576px) 80vw, 95vw"}
+              />
             </SwiperSlide>
           );
         })}
       </Swiper>
-
-
     </Layout>
   );
 }

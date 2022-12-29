@@ -4,7 +4,6 @@ import Figure from "../components/Figure";
 
 import Draggable from "react-draggable";
 
-import Link from "next/link";
 import client from "../client";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
@@ -17,15 +16,15 @@ export default function Commerce(commerce) {
     if (theme == "highTech" && commerce?.galleryNormal != null) {
       setGallery(commerce.galleryNormal);
       let z = [];
-      for (let i = 0; i < commerce.galleryNormal.length; i++) {
-        z = [...z, i + 10];
+      for (let i = commerce.galleryNormal.length; i > 0; i--) {
+        z = [...z, i];
       }
       setZIndexes(z);
     } else if (theme == "lowTech" && commerce?.galleryLow != null) {
       setGallery(commerce.galleryLow);
       let z = [];
-      for (let i = 0; i < commerce.galleryLow.length; i++) {
-        z = [...z, i + 10];
+      for (let i = commerce.galleryLow.length; i > 0; i--) {
+        z = [...z, i];
       }
       setZIndexes(z);
     }
@@ -33,11 +32,16 @@ export default function Commerce(commerce) {
 
   const changeZ = (index) => {
     let newZ = [...zIndexes];
+    let thresholdIndex = newZ[index];
+
     for (let i = 0; i < newZ.length; i++) {
-      newZ[i] = newZ[i] - 1;
+      if (newZ[i] > thresholdIndex) {
+        newZ[i] = newZ[i] - 1;
+      }
     }
-    newZ[index] = 10 + (newZ.length - 1);
-    setZIndexes(newZ)
+    newZ[index] = newZ.length;
+
+    setZIndexes(newZ);
   };
 
   return (
@@ -48,15 +52,25 @@ export default function Commerce(commerce) {
             <Draggable
               key={image._key}
               bounds="parent"
-              defaultPosition={{ x: i * 20 - 20, y: i * 20 - 20 }}
-              onMouseDown={() => changeZ(i)}
-              onTouchStart={() => changeZ(i)}
+              defaultPosition={{
+                x: Math.floor(Math.random() * 150),
+                y: Math.floor(Math.random() * 200),
+              }}
+              onStart={() => changeZ(i)}
             >
               <div
-                className={styles.commerceFigureContainer}               
-                style={{zIndex: zIndexes[i]}}
+                className={styles.commerceFigureContainer}
+                style={{ zIndex: zIndexes[i] }}
               >
-                <Figure image={image} alt={""} figureType={"commerce"} />
+                <Figure
+                  image={image}
+                  alt={""}
+                  sizes={`
+                    (min-width: 1025px) calc(40vw - 1.43rem * 3), 
+                    (min-width: 768px) calc(50vw - 1.43rem * 3), 
+                    calc(70vw - 1.43rem * 3) 
+                    `}
+                />
               </div>
             </Draggable>
           );

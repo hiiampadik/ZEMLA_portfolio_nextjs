@@ -20,7 +20,7 @@ export default function AnimatedFigure(props) {
       return props.height;
     } else {
       if (typeof props.image.metadata?.dimensions.aspectRatio !== "undefined") {
-        console.log(props.image.metadata.dimensions);
+        // console.log(props.image.metadata.dimensions);
         return 600 / props.image.metadata.dimensions.aspectRatio;
       } else {
         return (600 / 16) * 9;

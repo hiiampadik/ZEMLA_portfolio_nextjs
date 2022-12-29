@@ -139,7 +139,7 @@ figure {
 
   --bg: rgba(255, 255, 255, 0.8);
   --blur: blur(0.7rem);
-
+  --rendering: auto;
 }
 
 [data-theme="lowTech"] {
@@ -151,6 +151,7 @@ figure {
 
   --bg:white;
   --blur: blur(0);
+  --rendering: pixelated;
 }
 
 [data-theme="highTech"] {
@@ -162,6 +163,8 @@ figure {
 
   --bg: rgba(255, 255, 255, 0.8);
   --blur: blur(0.7rem);
+
+  --rendering: auto;
 }
 
 
@@ -172,4 +175,8 @@ body{
   font-weight: var(--menuweight);
   background-color: #fcfcfc;
   color: black;
+}
+
+img {
+  image-rendering: var(--rendering);
 }

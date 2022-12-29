@@ -2,17 +2,17 @@
 
 .homeSwiper{
   position: fixed;
-  top: 50%;
+  top: 49%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70vw;
-  height: 70vh;
+  height: 60vh;
 
   max-width: 100vh;
 
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     width: 80vw;
-    height: 80vh;
+    height: 70vh;
   }
   @media only screen and (max-width: $breakpoint-mobile-max) {
     max-width: 95vw;
@@ -29,18 +29,16 @@
 
 .homeTypewriter{
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%);
+  top: 2.1rem;
+  left: $lh;
 
   font-family: var(--menufont);
   font-weight: var(--menuweight);
-  font-size: 2rem;
+  font-size: var(--menusize);
   line-height: 1em;
-  z-index: 100;
+  z-index: 600;
   color: black;
-  text-align: center;
+  text-align: left;
 }
 
 .homeLinks{

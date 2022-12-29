@@ -12,6 +12,9 @@ import Link from "next/link";
 
 import React, { useState } from "react";
 
+import Typewriter from "../components/Typewriter";
+
+
 export default function QualitySettings(props) {
   const [showAbout, setShowAbout] = useState(false);
   const router = useRouter();
@@ -59,18 +62,21 @@ export default function QualitySettings(props) {
 
   return (
     <div className={styles.qualitySettingsContainer}>
+      
       <div className={styles.qualityLeft}>
         <Link href={"/"} locale={router.locale}>
           Petr Žemla
         </Link>
       </div>
 
+      <Typewriter />
+
       <div className={styles.qualityRight}>
         <Link
           href={router.asPath}
-          locale={languageButton == "En" ? "en" : "cs"}
+          locale={languageButton == "En" ? "En" : "Cs"}
         >
-          <a className={styles.qualityLanguage}>{languageButton}</a>
+          {languageButton}
         </Link>
       </div>
 
