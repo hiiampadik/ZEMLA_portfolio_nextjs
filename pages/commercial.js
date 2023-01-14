@@ -1,4 +1,4 @@
-import styles from "../styles/Commerce.module.scss";
+import styles from "../styles/Commercial.module.scss";
 import Layout from "../components/Layout";
 import Figure from "../components/Figure";
 
@@ -8,27 +8,27 @@ import client from "../client";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-export default function Commerce(commerce) {
+export default function Commercial(commercial) {
   const { theme, setTheme } = useTheme();
   const [gallery, setGallery] = useState(null);
   const [zIndexes, setZIndexes] = useState(null);
   useEffect(() => {
-    if (theme == "highTech" && commerce?.galleryNormal != null) {
-      setGallery(commerce.galleryNormal);
+    if (theme == "highTech" && commercial?.galleryNormal != null) {
+      setGallery(commercial.galleryNormal);
       let z = [];
-      for (let i = commerce.galleryNormal.length; i > 0; i--) {
+      for (let i = commercial.galleryNormal.length; i > 0; i--) {
         z = [...z, i];
       }
       setZIndexes(z);
-    } else if (theme == "lowTech" && commerce?.galleryLow != null) {
-      setGallery(commerce.galleryLow);
+    } else if (theme == "lowTech" && commercial?.galleryLow != null) {
+      setGallery(commercial.galleryLow);
       let z = [];
-      for (let i = commerce.galleryLow.length; i > 0; i--) {
+      for (let i = commercial.galleryLow.length; i > 0; i--) {
         z = [...z, i];
       }
       setZIndexes(z);
     }
-  }, [commerce, theme]);
+  }, [commercial, theme]);
 
   const changeZ = (index) => {
     let newZ = [...zIndexes];
@@ -59,7 +59,7 @@ export default function Commerce(commerce) {
               onStart={() => changeZ(i)}
             >
               <div
-                className={styles.commerceFigureContainer}
+                className={styles.commercialFigureContainer}
                 style={{ zIndex: zIndexes[i] }}
               >
                 <Figure
@@ -81,7 +81,7 @@ export default function Commerce(commerce) {
 }
 
 export async function getStaticProps(context) {
-  const commerce = await client.fetch(
+  const commercial = await client.fetch(
     `
     *[_id == "commerce"]  [0] {
       ...,
@@ -95,7 +95,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      ...commerce,
+      ...commercial,
     },
     revalidate: 10,
   };

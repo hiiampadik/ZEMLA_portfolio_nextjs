@@ -99,8 +99,8 @@ function ContainerMenu(props) {
         <Link href={"/projects"} locale={props.router.locale}>
           {props.t.projects}
         </Link>
-        <Link href={"/commerce"} locale={props.router.locale}>
-          {props.t.commerce}
+        <Link href={"/commercial"} locale={props.router.locale}>
+          {props.t.commercial}
         </Link>
         <Link href={"/films"} locale={props.router.locale}>
           {props.t.films}
@@ -152,8 +152,8 @@ function MenuWindow(props) {
         <Link href={"/projects"} locale={router.locale}>
           {t.projects}
         </Link>
-        <Link href={"/commerce"} locale={router.locale}>
-          {t.commerce}
+        <Link href={"/commercial"} locale={router.locale}>
+          {t.commercial}
         </Link>
         <Link href={"/films"} locale={router.locale}>
           {t.films}

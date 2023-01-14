@@ -1,7 +1,7 @@
 export default {
      about: 'O mně',
      projects: 'Projekty',
-     commerce: 'Komerce',
+     commercial: 'Komerce',
      films: 'Filmy',
      languageSwitch: 'En',
      info: 'Anotace',
