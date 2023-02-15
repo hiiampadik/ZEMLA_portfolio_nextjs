@@ -20,13 +20,13 @@ export default function Svatba(svatba) {
   }, []);
 
   return (
-    <Layout>
+    <main>
       <div className={styles.svatbaWrap}>
         <div className={styles.svatbaContainer}>
           <BlockContent blocks={svatba.text} noLanguage />
         </div>
       </div>
-    </Layout>
+    </main>
   );
 }
 
