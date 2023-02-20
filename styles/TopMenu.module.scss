@@ -17,7 +17,6 @@
 }
 
 .nav {
-
   a {
     text-decoration: none;
     color: inherit;
@@ -36,24 +35,6 @@
     gap: $lh / 2;
     left: $lh / 2;
     right: $lh / 2;
-  }
-
-  a:hover,
-  a:active,
-  button:hover,
-  button:active {
-    color: blue;
-  }
-
-  .navQuality:hover, 
-  .navQuality:active{
-    p {
-      color: blue;
-    }
-    div{
-      background-color: blue;
-    }
-
   }
 }
 
@@ -239,13 +220,6 @@
     line-height: 1em;
     transition: 0.3s;
   }
-
-  a:hover,
-  a:active,
-  button:hover,
-  button:active {
-    color: blue;
-  }
 }
 
 .menuWindowTop {
@@ -324,9 +298,12 @@
   font-size: var(--menusize);
   line-height: 1em;
 
-  transition: 0.3s;
+ 
   text-align: center;
   z-index: 700;
+  a{
+    transition: 0.3s;
+  }
 }
 
 .navFooter {
@@ -344,10 +321,6 @@
     left: $lh / 1.5;
   }
 
-  a:hover,
-  a:active {
-    color: blue;
-  }
 }
 
 .navArticles {
@@ -383,7 +356,4 @@
   background-size: 70% 70%;
 }
 
-.navArticles:hover,
-.navArticles:active {
-  color: blue;
-}
+

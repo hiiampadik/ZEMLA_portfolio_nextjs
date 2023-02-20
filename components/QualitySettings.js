@@ -1,5 +1,5 @@
 import styles from "../styles/QualitySettings.module.scss";
-import stylesAbout from "../styles/About.module.scss";
+import stylesDraggable from "../styles/Draggable.module.scss";
 import stylesMenu from "../styles/TopMenu.module.scss";
 
 import { useSpring } from "@react-spring/web";
@@ -21,7 +21,6 @@ import Draggable from "react-draggable";
 import Typewriter from "../components/Typewriter";
 
 export default function QualitySettings(props) {
-  
   const [showAbout, setShowAbout] = useState(false);
   const router = useRouter();
   const t = router.locale === "cs" ? cs : en;
@@ -65,23 +64,29 @@ export default function QualitySettings(props) {
 
   return (
     <div className={styles.qualitySettingsContainer}>
-      
-      <div className={stylesMenu.navAbout} onClick={() => setShowAbout(!showAbout)}>
+      <div
+        className={stylesMenu.navAbout}
+        onClick={() => setShowAbout(!showAbout)}
+      >
         <p>{t.question}</p>
       </div>
-      
+
       {!error && data && showAbout ? (
-        <div className={stylesAbout.boundParent}>
+        <div className={stylesDraggable.boundParent}>
           <Draggable handle="span" bounds="parent">
-            <div className={stylesAbout.qualityContainer}>
+            <div
+              className={`${stylesDraggable.draggableContainer} ${stylesDraggable.qualityContainer}`}
+            >
               <span>
-                <div className={stylesAbout.aboutHeader}></div>
+                <div className={stylesDraggable.draggableHeader}></div>
               </span>
               <div
                 onClick={() => setShowAbout(false)}
-                className={stylesAbout.aboutClose}
+                className={stylesDraggable.draggableClose}
               ></div>
-              <div className={stylesAbout.aboutContent}>{getContent()}</div>
+              <div className={stylesDraggable.draggableContent}>
+                {getContent()}
+              </div>
             </div>
           </Draggable>
         </div>
@@ -91,7 +96,7 @@ export default function QualitySettings(props) {
 
       <div className={styles.qualityLeft}>
         <Link href={"/"} locale={router.locale}>
-          Petr Žemla
+          <a className={styles.blue}>Petr Žemla</a>
         </Link>
       </div>
 
@@ -102,7 +107,7 @@ export default function QualitySettings(props) {
           href={router.asPath}
           locale={languageButton == "En" ? "En" : "Cs"}
         >
-          {languageButton}
+          <a className={styles.green}>{languageButton}</a>
         </Link>
       </div>
 

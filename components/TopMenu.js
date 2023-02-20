@@ -55,8 +55,8 @@ export default function TopMenu(props) {
       {router.pathname !== "/projects/[slug]" ? (
         <>
           <div className={styles.navFooter}>
-            <a href="mailto:petr@zem.la">petr@zem.la</a>
-            <a href="https://www.instagram.com/zem.la/">Instagram</a>
+            <a href="mailto:petr@zem.la" className={styles.brown}>petr@zem.la</a>
+            <a href="https://www.instagram.com/zem.la/" className={styles.brown}>Instagram</a>
           </div>
           {/* <Link href={"/articles"} locale={router.locale}>
             <a className={styles.navArticles}>{t.articles}</a>
@@ -91,19 +91,19 @@ function ContainerMenu(props) {
     <div className={styles.nav}>
       <div className={`${styles.navLeftContainer} `}>
         <Link href={"/"} locale={props.router.locale}>
-          Petr Žemla
+          <a className={styles.blue}>Petr Žemla</a>
         </Link>
       </div>
 
       <div className={styles.navCenterContainer}>
         <Link href={"/projects"} locale={props.router.locale}>
-          {props.t.projects}
+          <a className={styles.yellow}>{props.t.projects}</a>
         </Link>
         <Link href={"/commercial"} locale={props.router.locale}>
-          {props.t.commercial}
+          <a className={styles.orange}>{props.t.commercial}</a>
         </Link>
         <Link href={"/films"} locale={props.router.locale}>
-          {props.t.films}
+          <a className={styles.pink}>{props.t.films}</a>
         </Link>
         {/* <Link href={"/print"} locale={props.router.locale}>
           {props.t.print}
@@ -132,7 +132,7 @@ function ContainerMenu(props) {
           href={props.router.asPath}
           locale={props.languageButton == "en" ? "en" : "cs"}
         >
-          {props.languageButton}
+           <a className={styles.green}>{props.languageButton}</a>
         </Link>
       </div>
 
@@ -150,13 +150,13 @@ function MenuWindow(props) {
     <div className={styles.menuWindowContainer}>
       <div className={styles.menuWindowTop}>
         <Link href={"/projects"} locale={router.locale}>
-          {t.projects}
+          <a className={styles.yellow}>{t.projects}</a>
         </Link>
         <Link href={"/commercial"} locale={router.locale}>
-          {t.commercial}
+          <a className={styles.orange}>{t.commercial}</a>
         </Link>
         <Link href={"/films"} locale={router.locale}>
-          {t.films}
+        <a className={styles.pink}>{t.films}</a>
         </Link>
         {/* <Link href={"/print"} locale={router.locale}>
           {t.print}

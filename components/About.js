@@ -1,4 +1,4 @@
-import styles from "../styles/About.module.scss";
+import styles from "../styles/Draggable.module.scss";
 
 import Draggable from "react-draggable";
 import BlockContent from "./BlockContent";
@@ -67,12 +67,12 @@ export default function About(props) {
   return (
     <div className={styles.boundParent}>
       <Draggable handle="span" bounds="parent">
-        <div className={styles.aboutContainer}>
+        <div className={styles.draggableContainer}>
           <span>
-            <div className={styles.aboutHeader}>{t.about}</div>
+            <div className={styles.draggableHeader}>{t.about}</div>
           </span>
-          <div onClick={props.handleClose} className={styles.aboutClose}></div>
-          <div className={styles.aboutContent}>
+          <div onClick={props.handleClose} className={styles.draggableClose}></div>
+          <div className={styles.draggableContent}>
             <div className={styles.aboutLinks}>
               <a href="mailto:petr@zem.la">petr@zem.la</a>
               <a href="https://instagram.com/zem.la" target="_blank">

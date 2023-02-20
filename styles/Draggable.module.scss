@@ -10,7 +10,7 @@
 }
 
 
-.aboutContainer, .qualityContainer {
+.draggableContainer {
   display: block;
   z-index: 710;
   position: absolute;
@@ -54,7 +54,7 @@
   width: $lh * 20;
 }
 
-.aboutHeader {
+.draggableHeader {
   left: 0;
   width: 100%;
   height: $lh * 1.5;
@@ -68,7 +68,7 @@
   font-size: var(--menusize);
 }
 
-.aboutContent {
+.draggableContent {
   padding: calc($lh / 1.5);
   padding-bottom: 6px;
   overflow-y: scroll;
@@ -85,7 +85,7 @@
   }
 }
 
-.aboutClose {
+.draggableClose {
   position: absolute;
   top: calc($lh / 3);
   right: calc($lh / 3);
@@ -96,7 +96,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.aboutClose:hover, .aboutClose:active {
+.draggableClose:hover, .draggableClose:active {
   transform: rotate(90deg);
 }
 

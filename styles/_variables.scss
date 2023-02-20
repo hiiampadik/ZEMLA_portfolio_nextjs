@@ -25,3 +25,43 @@ $breakpoint-2k-max: 3839px;
 $breakpoint-4k-min: 3840px;
 
 
+// 
+
+.navQuality:hover, 
+.navQuality:active{
+  p {
+    color: #9539ce;
+  }
+  div{
+    background-color: #9539ce;
+  }
+
+}
+
+.purple:hover, .purple:active{
+     color: #9539ce
+}
+
+.blue:hover, .blue:active{
+  color: #4763FF;
+}
+
+.yellow:hover, .yellow:active{
+  color: #F7C644;
+}
+
+.orange:hover, .orange:active{
+  color: #FF7347;
+}
+
+.brown:hover, .brown:active{
+     color: #906514
+}
+
+.pink:hover, .pink:active{
+     color: #f7afbc
+}
+
+.green:hover, .green:active{
+     color: #65ac9b
+}
