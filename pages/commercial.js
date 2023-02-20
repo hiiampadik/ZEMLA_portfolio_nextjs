@@ -44,6 +44,15 @@ export default function Commercial(commercial) {
     setZIndexes(newZ);
   };
 
+  const getStyles = () => {
+    if (theme === "highTech") {
+      return styles.commercialGrabHigh;
+    } else if (theme === "lowTech") {
+      return styles.commercialGrabLow;
+    }
+  };
+
+
   return (
     <Layout>
       <div className={styles.boundParent}>
@@ -76,6 +85,9 @@ export default function Commercial(commercial) {
           );
         })}
       </div>
+      <div
+        className={`${styles.commercialGrab} ${getStyles()}`}
+      ></div>
     </Layout>
   );
 }
