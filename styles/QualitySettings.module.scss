@@ -89,12 +89,12 @@
 
 .qualityLowContainer:hover, .qualityLowContainer:active {
   // left: 50%;
-  transform: translate(-50%, -55%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .qualityHighContainer:hover, .qualityHighContainer:active {
   // left: 50%;
-  transform: translate(-50%, -55%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .qualityText {
@@ -130,10 +130,10 @@
   line-height: 100%;
   z-index: 600;
 
-  @media only screen and (max-width: $breakpoint-smalltablet-max) {
-    left: 50%;
-    transform: translate(-50%);
-  }
+  // @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  //   left: 50%;
+  //   transform: translate(-50%);
+  // }
 }
 
 .qualityRight {
@@ -146,4 +146,24 @@
   right: $lh;
   line-height: 100%;
   z-index: 600;
+}
+
+.landingTypewriter{
+  position: fixed;
+  top: 2.1rem;
+  left: $lh;
+
+  font-family: var(--menufont);
+  font-weight: var(--menuweight);
+  font-size: var(--menusize);
+  line-height: 1em;
+  z-index: 600;
+  color: black;
+  text-align: left;
+
+  // @media only screen and (max-width: $breakpoint-smalltablet-max) {
+  //   left: $lh * 0.9;
+  //   top: 1rem;
+  //   inline-size: min-content;
+  // }
 }

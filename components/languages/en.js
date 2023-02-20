@@ -11,4 +11,5 @@ export default {
      notavailable: "Not Available :(",
      pieces: "pieces",
      piece: "piece",
+     question: "?"
 };

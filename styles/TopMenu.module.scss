@@ -44,6 +44,17 @@
   button:active {
     color: blue;
   }
+
+  .navQuality:hover, 
+  .navQuality:active{
+    p {
+      color: blue;
+    }
+    div{
+      background-color: blue;
+    }
+
+  }
 }
 
 .navHomepageTop {
@@ -138,6 +149,7 @@
   }
 
   .navQualityText {
+    transition: 0.3s;
     margin: 0;
     font-family: var(--menufont);
     font-weight: var(--menuweight);
@@ -151,8 +163,10 @@
     height: 0.8rem;
     width: 0.8rem;
 
-    background-image: url(../public/ui/gear.svg);
-    background-repeat: no-repeat;
+    background-color: black;
+    mask-image: url(../public/ui/gear.svg);
+    mask-repeat: no-repeat;
+    
     transition: 0.6s;
     @media only screen and (max-width: $breakpoint-mobile-max) {
       height: 1rem;

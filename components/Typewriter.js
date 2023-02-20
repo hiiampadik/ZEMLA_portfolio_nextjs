@@ -1,4 +1,4 @@
-import styles from "../styles/Homepage.module.scss";
+import styles from "../styles/QualitySettings.module.scss";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -94,7 +94,7 @@ export default function Home(galleries) {
             loop: true,
             delay: 40,
             deleteSpeed: 50,
-            wrapperClassName: styles.homeTypewriter,
+            wrapperClassName: styles.landingTypewriter,
           }}
         />
   );

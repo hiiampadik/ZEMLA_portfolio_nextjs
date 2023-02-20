@@ -1,4 +1,6 @@
 import styles from "../styles/QualitySettings.module.scss";
+import stylesAbout from "../styles/About.module.scss";
+import stylesMenu from "../styles/TopMenu.module.scss";
 
 import { useSpring } from "@react-spring/web";
 import BlockContent from "./BlockContent";
@@ -8,16 +10,21 @@ import useSWR from "swr";
 import sanityClient from "@sanity/client";
 import groq from "groq";
 import { useRouter } from "next/router";
+import cs from "./languages/cs";
+import en from "./languages/en";
+
 import Link from "next/link";
 
 import React, { useState } from "react";
+import Draggable from "react-draggable";
 
 import Typewriter from "../components/Typewriter";
 
-
 export default function QualitySettings(props) {
+  
   const [showAbout, setShowAbout] = useState(false);
   const router = useRouter();
+  const t = router.locale === "cs" ? cs : en;
   const languageButton = router.locale === "cs" ? "En" : "Cz";
 
   const client = sanityClient({
@@ -43,26 +50,45 @@ export default function QualitySettings(props) {
   const [quality, setQuality] = useState(null);
 
   const lowQuality = useSpring({
-    from: { opacity: 0, transform: "translate(-50%, -50%)" },
+    from: { opacity: 0 },
     to: {
       opacity: quality == "low" ? 1 : 0,
-      transform:
-        quality == "low" ? "translate(-50%, -50%)" : "translate(-50%, -48%)",
     },
   });
 
   const highQuality = useSpring({
-    from: { opacity: 0, transform: "translate(-50%, -50%)" },
+    from: { opacity: 0 },
     to: {
       opacity: quality == "high" ? 1 : 0,
-      transform:
-        quality == "high" ? "translate(-50%, -50%)" : "translate(-50%, -48%)",
     },
   });
 
   return (
     <div className={styles.qualitySettingsContainer}>
       
+      <div className={stylesMenu.navAbout} onClick={() => setShowAbout(!showAbout)}>
+        <p>{t.question}</p>
+      </div>
+      
+      {!error && data && showAbout ? (
+        <div className={stylesAbout.boundParent}>
+          <Draggable handle="span" bounds="parent">
+            <div className={stylesAbout.qualityContainer}>
+              <span>
+                <div className={stylesAbout.aboutHeader}></div>
+              </span>
+              <div
+                onClick={() => setShowAbout(false)}
+                className={stylesAbout.aboutClose}
+              ></div>
+              <div className={stylesAbout.aboutContent}>{getContent()}</div>
+            </div>
+          </Draggable>
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className={styles.qualityLeft}>
         <Link href={"/"} locale={router.locale}>
           Petr Žemla

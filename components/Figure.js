@@ -21,13 +21,13 @@ export default function Figure(props) {
       {theme === "lowTech" ? (
         <img
           className={props.class != null ? props.class : ""}
-          src={builder.image(props.image).auto("format").width(600).url()}
+          src={builder.image(props.image).auto("format").format('png').width(600).url()}
           alt={props.alt}
         />
       ) : (
         <img
           className={props.class != null ? props.class : ""}
-          src={builder.image(props.image).auto("format").url()}
+          src={builder.image(props.image).auto("format").format('png').url()}
           alt={props.alt}
           sizes={getSizes()}
           srcSet={`

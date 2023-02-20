@@ -6,10 +6,11 @@
   height: calc(100vh - $lh * 2.4);
   left: 0;
   right: 0;
+  z-index: 1100;
 }
 
 
-.aboutContainer {
+.aboutContainer, .qualityContainer {
   display: block;
   z-index: 710;
   position: absolute;
@@ -47,6 +48,10 @@
     font-size: 1rem;
     line-height: 1.3em;
   }
+}
+
+.qualityContainer{
+  width: $lh * 20;
 }
 
 .aboutHeader {

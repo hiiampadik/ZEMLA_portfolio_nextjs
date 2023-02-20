@@ -81,9 +81,9 @@ function ContainerMenu(props) {
       props.router.pathname === "/articles/[slug]" ||
       props.router.pathname === "/projects/[slug]"
     ) {
-      return styles.navBgBorder
+      return styles.navBgBorder;
     } else {
-      return ''
+      return "";
     }
   };
 

@@ -27,19 +27,6 @@
   }
 }
 
-.homeTypewriter{
-  position: fixed;
-  top: 2.1rem;
-  left: $lh;
-
-  font-family: var(--menufont);
-  font-weight: var(--menuweight);
-  font-size: var(--menusize);
-  line-height: 1em;
-  z-index: 600;
-  color: black;
-  text-align: left;
-}
 
 .homeLinks{
   position: fixed;
