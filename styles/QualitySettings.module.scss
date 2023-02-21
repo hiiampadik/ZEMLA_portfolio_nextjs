@@ -1,12 +1,7 @@
 @import "_variables.scss";
 
 .qualitySettingsContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100vw;
-  height: 100vh;
+
   background-color: #fcfcfc;
 
   a{
@@ -28,28 +23,32 @@
 
 .qualityPhoto {
   position: absolute;
-  top: 45%;
-  left: 50.5%;
-  width: 28vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
 }
 
 .qualityPhotoWrapper {
 }
 
+
 .qualityHighContainer,
 .qualityLowContainer {
+  margin: $lh;
   border: none;
   cursor: pointer;
   background: transparent;
   transition: 0.3s;
 
-  height: 11vw;
-  width: 44vw;
+  height: 12vw;
+  width: 48vw;
   background-repeat: no-repeat;
-  transition: 0.6s;
+  transition: 0.3s;
   margin: 0;
+  position: absolute;
+  z-index: 800;
 
-  z-index: 1000;
 
   h2 {
     margin: 3vh 0;
@@ -59,42 +58,57 @@
     font-size: 2vh;
     letter-spacing: 0.05em;
   }
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
+    height: 18vw;
+    width: 72vw;
+  }
+
 }
 
 .qualityHighContainer {
-  background-image: url(../public/ui/high.svg);
-  background-position: center center;
-  background-blend-mode: difference;
-  // mix-blend-mode: difference;
-  filter: brightness(0);
+  // background-color: black;
+  // mask-image: url(../public/ui/high.svg);
+  // mask-position: center center;
+  // mask-repeat: no-repeat;
 
-  position: absolute;
-  top: 45%;
-  left: 30%;
+  position: fixed;
+  top: calc(50% - 6.5vw);
+  left: 50%;
   transform: translate(-50%, -50%);
+
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
+    top: calc(50% - 9.5vw);
+    left: 50%;
+  }
 }
 
 .qualityLowContainer {
-  background-image: url(../public/ui/low.svg);
-  background-position: center center;
-  background-blend-mode: difference;
-  // mix-blend-mode: difference;
-  filter: brightness(0);
-  position: absolute;
-  top: 45%;
-  left: 70%;
+  // background-color: black;
+  // mask-image: url(../public/ui/low.svg);
+  // mask-position: center center;
+  // mask-repeat: no-repeat;
+  position: fixed;
+  top: calc(50% + 6vw);
+  left: 50%;
   transform: translate(-50%, -50%);
 
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
+    top: calc(50% + 9vw);
+    left: 50%;
+  }
 }
 
 .qualityLowContainer:hover, .qualityLowContainer:active {
   // left: 50%;
-  transform: translate(-50%, -50%) scale(1.05);
+  // transform: translate(-50%, -50%) scale(1.05);
+  // opacity: 0.6;
+  // background-color: #4763FF;
+
 }
 
 .qualityHighContainer:hover, .qualityHighContainer:active {
   // left: 50%;
-  transform: translate(-50%, -50%) scale(1.05);
+  // transform: translate(-50%, -50%) scale(1.05);
 }
 
 .qualityText {

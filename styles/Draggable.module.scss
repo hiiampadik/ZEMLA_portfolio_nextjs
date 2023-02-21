@@ -1,18 +1,17 @@
 @import "_variables.scss";
 
-.boundParent{
+.boundParent, .boundParentQuality{
   position: absolute;
   top: calc($lh * 2.4);
   height: calc(100vh - $lh * 2.4);
   left: 0;
   right: 0;
-  z-index: 1100;
 }
 
 
 .draggableContainer {
+  z-index: 1200;
   display: block;
-  z-index: 710;
   position: absolute;
   top: 20%;
   left: 15%;
@@ -21,7 +20,6 @@
   max-width: 75vw;
   height: $lh * 20;
   max-height: 80vh;
-
   border: 1.5px black solid;
 
   background-color: var(--bg);
