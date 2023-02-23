@@ -44,32 +44,6 @@ export default function QualitySettings(props) {
 
   const [quality, setQuality] = useState(null);
 
-  const stringCs = [
-    "Fotogarfické portfolio",
-    "rafické potrfolio",
-    " protfolio",
-    " portfoiol",
-    "rtfolium",
-    "otrfoloi",
-    " prftoliot",
-    "togarfckié ptrooflio",
-    "otgaréfcki prlftoooi",
-    "fgtrkcooaié frtpliooo",
-  ]  
-
-  const stringEn = [
-    "Photogarphy portfolio",
-    "graphy potrfolio",
-    " protfolio",
-    " portfoiol",
-    "rtfolium",
-    "otrfoloi",
-    " prftoliot",
-    "ootgrpahy ptrooflio",
-    "otogarphy prlftoooi",
-    "fgtrgcooay frtpliooo",
-  ]
-  
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -88,11 +62,8 @@ export default function QualitySettings(props) {
   return (
     <nav className={styles.qualitySettingsContainer}>
 
-    {router.locale === 'cs' ?
-      <Typewriter strings={stringCs} language={'cs'}/>
-      :
-      <Typewriter strings={stringEn} language={'en'}/>
-  }
+      {/* <Typewriter /> */}
+
       {!error && data ? (
         <>
           <AnimatedFigure

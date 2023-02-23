@@ -133,10 +133,15 @@
   z-index: 600;
   color: black;
   text-align: left;
+  opacity: 0.1;
 
   // @media only screen and (max-width: $breakpoint-smalltablet-max) {
   //   left: $lh * 0.9;
   //   top: 1rem;
   //   inline-size: min-content;
   // }
+}
+
+.typewriterShow{
+  opacity: 1 !important;
 }
