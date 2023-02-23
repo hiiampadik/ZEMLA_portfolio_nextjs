@@ -27,41 +27,92 @@ $breakpoint-4k-min: 3840px;
 
 // 
 
-.navQuality:hover, 
-.navQuality:active{
-  p {
-    color: #9539ce;
+// .navQuality:active{
+//   p {
+//     color: #9539ce;
+//   }
+//   div{
+//     background-color: #9539ce;
+//   }
+// }
+
+@media (hover: hover){
+  .navQuality:hover{
+    p {
+      color: #9539ce;
+    }
+    div{
+      background-color: #9539ce;
+    }
   }
-  div{
-    background-color: #9539ce;
+}
+
+// .purple:active{
+//      color: #9539ce
+// }
+
+@media (hover: hover){
+  .purple:hover{
+    color: #9539ce
   }
-
 }
 
-.purple:hover, .purple:active{
-     color: #9539ce
+// .blue:active{
+//   color: #4763FF;
+// }
+
+@media (hover: hover){
+  .blue:hover{
+    color: #4763FF
+  }
 }
 
-.blue:hover, .blue:active{
-  color: #4763FF;
+// .yellow:active{
+//   color: #F7C644;
+// }
+
+@media (hover: hover){
+  .yellow:hover{
+    color: #F7C644
+  }
 }
 
-.yellow:hover, .yellow:active{
-  color: #F7C644;
+// .orange:active{
+//   color: #FF7347;
+// }
+
+@media (hover: hover){
+  .orange:hover{
+    color: #FF7347
+  }
 }
 
-.orange:hover, .orange:active{
-  color: #FF7347;
+// .brown:active{
+//      color: #906514
+// }
+
+@media (hover: hover){
+  .brown:hover{
+    color: #906514
+  }
 }
 
-.brown:hover, .brown:active{
-     color: #906514
+// .pink:active{
+//      color: #f7afbc
+// }
+
+@media (hover: hover){
+  .pink:hover{
+    color: #f7afbc
+  }
 }
 
-.pink:hover, .pink:active{
-     color: #f7afbc
-}
+// .green:active{
+//      color: #65ac9b
+// }
 
-.green:hover, .green:active{
-     color: #65ac9b
+@media (hover: hover){
+  .green:hover{
+    color: #65ac9b
+  }
 }

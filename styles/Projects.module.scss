@@ -40,10 +40,17 @@
   }
 }
 
-.projectInfoButton:hover,
-.projectInfoButton:active {
-  filter: drop-shadow($lh / 4 $lh / 4 0 black);
-  transform: translate(calc(-50% - $lh / 4), -$lh / 4);
+// .projectInfoButton:hover,
+// .projectInfoButton:active {
+//   filter: drop-shadow($lh / 4 $lh / 4 0 black);
+//   transform: translate(calc(-50% - $lh / 4), -$lh / 4);
+// }
+
+@media (hover: hover){
+  .projectInfoButton:hover{
+    filter: drop-shadow($lh / 4 $lh / 4 0 black);
+    transform: translate(calc(-50% - $lh / 4), -$lh / 4);
+  }
 }
 
 .projectInfoContainer {

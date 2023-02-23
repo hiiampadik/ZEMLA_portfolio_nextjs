@@ -33,10 +33,13 @@
   filter: drop-shadow(0 0 0 black);
 }
 
-.filmButtonContainer:hover, .filmButtonContainer:active {
-  filter: drop-shadow($lh / 4 $lh / 4 0 black);
-  transform: translate(-$lh / 4, -$lh / 4);
-}
+@media (hover: hover){
+  .filmButtonContainer:hover{
+    filter: drop-shadow($lh / 4 $lh / 4 0 black);
+    transform: translate(-$lh / 4, -$lh / 4);
+    }
+ }
+
 
 .filmsReload {
   position: fixed;
@@ -62,9 +65,15 @@
   background-position: center center;
 }
 
-.filmsReload:hover, .filmsReload:active{
-  transform: translate(-50%, -50%) scale(1.05);
-}
+// .filmsReload:hover, .filmsReload:active{
+//   transform: translate(-50%, -50%) scale(1.05);
+// }
+
+@media (hover: hover){
+  .filmsReload:hover{
+    transform: translate(-50%, -50%) scale(1.05);
+    }
+ }
 
 .filmContainer {
   display: block;
@@ -148,6 +157,12 @@
   background-repeat: no-repeat;
   cursor: pointer;
 }
-.draggableClose:hover, .draggableClose:active {
-  transform: rotate(90deg);
+// .draggableClose:hover, .draggableClose:active {
+//   transform: rotate(90deg);
+// }
+
+@media (hover: hover){
+  .draggableClose:hover{
+    transform: rotate(90deg);
+  }
 }
