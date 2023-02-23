@@ -88,7 +88,7 @@ export default function QualitySettings(props) {
       <div className={styles.qualityRight}>
         <Link
           href={router.asPath}
-          locale={languageButton == "En" ? "En" : "Cs"}
+          locale={languageButton == "en" ? "en" : "cs"}
         >
           <a className={styles.green}>{languageButton}</a>
         </Link>
