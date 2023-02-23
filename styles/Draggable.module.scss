@@ -85,13 +85,15 @@
 
 .draggableClose {
   position: absolute;
-  top: calc($lh / 3);
-  right: calc($lh / 3);
-  height: calc($lh / 1.3);
-  width: calc($lh / 1.3);
+  top: 0;
+  right: 0;
+  height: calc($lh * 1.5);
+  width: calc($lh * 1.5);
 
   background-image: url(../public/ui/close.svg);
+  background-size: calc($lh / 1.3) calc($lh / 1.3);
   background-repeat: no-repeat;
+  background-position: center center;
   cursor: pointer;
 }
 
@@ -106,15 +108,19 @@
     gap: $lh/4;
   }
 
+  @media only screen and (max-width:450px) {
+    grid-template-columns: auto;
+  }
+
 
   a{
     text-decoration: none !important;
-    padding: $lh / 4 $lh;
+    padding: $lh / 4 $lh / 3;
     border: 1.5px black solid;
     text-align: center;
     border-radius: $lh;
     @media only screen and (max-width: $breakpoint-mobile-max) {
-      padding: $lh / 4 $lh / 3;
+      padding: $lh / 4 $lh / 4;
       font-size: 1rem;
     }
   }

@@ -97,13 +97,15 @@
     display: inline-block;
 
     position: fixed;
-    top: 1rem;
-    left: $lh;
+    top: 0.5rem;
+    left: $lh / 2;
 
     background-image: url(../public/ui/menu.svg);
     background-repeat: no-repeat;
-    height: $lh;
-    width: $lh;
+    background-size: $lh $lh;
+    background-position: center center;
+    height: 2rem;
+    width: $lh * 2;
   }
 }
 

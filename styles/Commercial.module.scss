@@ -25,20 +25,21 @@
     pointer-events: none;
     transition: 0.5s;
 
-    max-height: calc(100vh - $lh * 13);
+    max-height: calc(100vh - $lh * 14);
     max-width: calc(40vw - $lh * 3);
+
 
     @media only screen and (max-width: $breakpoint-smallscreen-max) {
       max-height: calc(95vh - $lh * 13);
     }
 
     @media only screen and (max-width: $breakpoint-largetablet-max) {
-      max-height: calc(90vh - $lh * 13);
+      max-height: calc(90vh - $lh * 10);
       max-width: calc(50vw - $lh * 3);
     }
 
     @media only screen and (max-width: $breakpoint-smalltablet-max) {
-      max-height: calc(70vh - $lh * 13);
+      max-height: calc(70vh - $lh * 10);
       max-width: calc(70vw - $lh * 3);
     }
 
@@ -135,11 +136,11 @@
 
   90% {
     opacity: 1;
-    transform: translate(-50%, 70vh);
+    transform: translate(-50%, 80vh);
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, 70vh);
+    transform: translate(-50%, 80vh);
   }
 }
