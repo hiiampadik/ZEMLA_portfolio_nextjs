@@ -1,7 +1,7 @@
 @import "_variables.scss";
 
 .navBg {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 0;
   left: $lh;
@@ -169,7 +169,6 @@
   .navQualityBg {
     transform: rotate(180deg);
   }
-
 }
 
 // External Window

@@ -2,27 +2,29 @@
 
 .swiper {
   width: 100%;
-  height: calc(100vh - $lh * 7);
   padding: 0;
   padding-bottom: $lh * 1.7 !important;
   
   margin-bottom: $lh * 1.7;
 
+  height: calc(100vh - $lh * 7);
+  
   @media only screen and (max-width: $breakpoint-mobile-max) {
-    height: calc(100vh - $lh * 6);
+    max-height: calc(100vh - $lh * 9);
   }
 }
 
-
+.swiper-wrapper{
+  align-items: center;
+}
 
 .swiperBlock {}
 
 .swiperSlide {
   padding: 0 $lh * 1.5;
-
+  
   @media only screen and (max-width: $breakpoint-mobile-max) {
     padding: $lh;
-
   }
 
   img {

@@ -13,11 +13,14 @@
   top: 0;
   left: $lh;
   z-index: 500;
+  background-color: white;
 
   cursor: grab !important;
   // border: 2px white solid;
 
   img {
+    border: $lh white solid;
+
     display: block;
     pointer-events: none;
     transition: 0.5s;
@@ -57,13 +60,14 @@
   width: $lh * 3;
   position: fixed;
   opacity: 0;
+  z-index: 600;
 
   @media only screen and (min-width: $breakpoint-largetablet-min) {
     top: 50%;
     left: 0;
     animation-name: horizontal;
     animation-duration: 3s;
-    animation-delay: 1s;
+    animation-delay: 3s;
     animation-iteration-count: 2;
   }
 
@@ -72,7 +76,7 @@
     left: 50%;
     animation-name: vertical;
     animation-duration: 3s;
-    animation-delay: 1s;
+    animation-delay: 3s;
     animation-iteration-count: 2;
   }
 }
@@ -92,8 +96,13 @@
 
 @keyframes horizontal {
   0% {
+    opacity: 0;
+    transform: translate(20vw, -50%);
+
+  }
+  3% {
     opacity: 1;
-    transform: translate(30vw, -50%);
+    transform: translate(20vw, -50%);
   }
 
   90% {
@@ -109,6 +118,10 @@
 
 @keyframes vertical {
   0% {
+    opacity: 0;
+    transform: translate(-50%, 30vh);
+  }
+  3% {
     opacity: 1;
     transform: translate(-50%, 30vh);
   }
