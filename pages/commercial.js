@@ -12,6 +12,9 @@ export default function Commercial(commercial) {
   const { theme, setTheme } = useTheme();
   const [gallery, setGallery] = useState(null);
   const [zIndexes, setZIndexes] = useState(null);
+
+  const [showGrab, setShowGrab] = useState(true);
+
   useEffect(() => {
     if (theme == "highTech" && commercial?.galleryNormal != null) {
       setGallery(commercial.galleryNormal);
@@ -65,7 +68,10 @@ export default function Commercial(commercial) {
                 x: Math.floor(Math.random() * 150),
                 y: Math.floor(Math.random() * 200),
               }}
-              onStart={() => changeZ(i)}
+              onStart={() => {
+                changeZ(i)
+                setShowGrab(false)
+              }}
             >
               <div
                 className={styles.commercialFigureContainer}
@@ -85,9 +91,11 @@ export default function Commercial(commercial) {
           );
         })}
       </div>
+      {showGrab &&
       <div
         className={`${styles.commercialGrab} ${getStyles()}`}
       ></div>
+      }
     </Layout>
   );
 }
