@@ -61,7 +61,7 @@
   gap: $lh * 0.2;
   row-gap: $lh * 0.2;
   img {
-    max-width: $lh * 4;
+    max-width: $lh * 4 !important;
     height: $lh * 2.5;
     object-fit: contain;
     border-radius: 0;
