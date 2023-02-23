@@ -19,7 +19,7 @@
   // border: 2px white solid;
 
   img {
-    border: $lh white solid;
+    border: 0.7rem white solid;
 
     display: block;
     pointer-events: none;
@@ -44,7 +44,7 @@
     }
 
     @media only screen and (max-width: $breakpoint-mobile-max) {
-      border: ($lh * 0.7) white solid;
+      border: 0.6rem white solid;
     }
 
 
