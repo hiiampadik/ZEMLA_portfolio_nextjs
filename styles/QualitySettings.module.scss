@@ -97,7 +97,7 @@ transition: 0.3s;
   font-family: Mondwest, 'Times New Roman', Times, serif;
   font-size: $lh * 1.7;
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
-    font-size: 1.5vw * 4;
+    font-size: 1.7vw * 4;
   }
   @media only screen and (max-width:400px) {
     font-size: $lh * 1.7  * 0.8;
