@@ -29,6 +29,9 @@
     font-weight: var(--menuweight);
     font-size: 2rem;
     line-height: 1em;
+    @media only screen and (max-width: $breakpoint-mobile-max) {
+      font-size: 1.5rem;
+    }
   }
   filter: drop-shadow(0 0 0 black);
 }

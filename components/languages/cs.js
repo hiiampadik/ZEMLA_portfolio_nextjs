@@ -11,5 +11,5 @@ export default {
      notavailable: "Už není :(",
      pieces: "ks",
      piece: "ks",
-     question: "?"
+     question: "Proč?"
 };

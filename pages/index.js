@@ -40,7 +40,6 @@ export default function Home(props) {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        enabled={false}
       >
         {gallery?.map((image) => {
           return (
