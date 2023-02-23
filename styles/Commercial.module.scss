@@ -43,6 +43,11 @@
       max-width: calc(70vw - $lh * 3);
     }
 
+    @media only screen and (max-width: $breakpoint-mobile-max) {
+      border: ($lh * 0.7) white solid;
+    }
+
+
     box-shadow: 0px 0px $lh * 0.3 rgba(50, 50, 50, 0.5);
 
   }
