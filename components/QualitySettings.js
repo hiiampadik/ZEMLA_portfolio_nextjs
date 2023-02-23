@@ -48,19 +48,31 @@ export default function QualitySettings(props) {
 
   const [quality, setQuality] = useState(null);
 
-  const lowQuality = useSpring({
-    from: {opacity: 0},
-    to: {
-      opacity: quality == "low" ? 1 : 0,
-    },
-  });
+  const csString = [
+    "Fotogarfické portfolio",
+    "rafické potrfolio",
+    " protfolio",
+    " portfoiol",
+    "rtfolium",
+    "otrfoloi",
+    " prftoliot",
+    "togarfckié ptrooflio",
+    "otgaréfcki prlftoooi",
+    "fgtrkcooaié frtpliooo",
+  ]
 
-  const highQuality = useSpring({
-    from: {opacity: 0},
-    to: {
-      opacity: quality == "high" ? 1 : 0,
-    },
-  });
+  const enString = [
+    "Photogarphy portfolio",
+    "graphy potrfolio",
+    " protfolio",
+    " portfoiol",
+    "rtfolium",
+    "otrfoloi",
+    " prftoliot",
+    "ootgrpahy ptrooflio",
+    "otogarphy prlftoooi",
+    "fgtrgcooay frtpliooo",
+  ]
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -77,34 +89,22 @@ export default function QualitySettings(props) {
 
   return (
     <nav className={styles.qualitySettingsContainer}>
-      <div className={styles.qualityLeft}>
-        <Link href={"/"} locale={router.locale}>
-          <a className={styles.blue}>Petr Žemla</a>
-        </Link>
-      </div>
 
-      <Typewriter />
-
-      <div className={styles.qualityRight}>
-        <Link
-          href={router.asPath}
-          locale={languageButton == "en" ? "en" : "cs"}
-        >
-          <a className={styles.green}>{languageButton}</a>
-        </Link>
-      </div>
+      {router.locale === 'cs' ?
+      <Typewriter strings={csString} language={'cs'}/>
+      :
+      <Typewriter strings={enString} language={'en'}/>
+      }
 
       {!error && data ? (
         <>
           <AnimatedFigure
-            class={styles.qualityPhoto}
-            style={highQuality}
+            class={`${styles.qualityPhoto} ${quality === 'high' ? styles.qualityPhotoShow : ""}`}
             image={data[0].images.high}
             width={"100%"}
           />
           <AnimatedFigure
-            class={styles.qualityPhoto}
-            style={lowQuality}
+            class={`${styles.qualityPhoto} ${quality === 'low' ? styles.qualityPhotoShow : ""}`}
             image={data[0].images.low}
             width={"100%"}
           />

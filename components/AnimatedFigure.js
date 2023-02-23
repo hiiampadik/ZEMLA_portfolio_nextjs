@@ -30,9 +30,9 @@ export default function AnimatedFigure(props) {
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <animated.img
+    <img
       className={props.class != null ? props.class : ""}
-      style={props.style != null ? props.style : ""}
+      // style={props.style != null ? props.style : ""}
       width={getWidth()}
       // height={getHeight()}
       src={builder.image(props.image).auto("format").width(getWidth()).url()}

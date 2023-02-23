@@ -1,14 +1,14 @@
 import styles from "../styles/TopMenu.module.scss";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 
 import About from "./About";
 
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import cs from "./languages/cs";
 import en from "./languages/en";
 
-import { useTheme } from "next-themes";
+import {useTheme} from "next-themes";
 
 export default function TopMenu(props) {
   const [showAbout, setShowAbout] = useState(false);
@@ -17,7 +17,7 @@ export default function TopMenu(props) {
   const t = router.locale === "cs" ? cs : en;
   const languageButton = router.locale === "cs" ? "en" : "cz";
 
-  const { theme, setTheme } = useTheme();
+  const {theme, setTheme} = useTheme();
 
   const handleQuality = () => {
     if (theme === "lowTech") {
@@ -33,13 +33,11 @@ export default function TopMenu(props) {
 
   return (
     <nav>
-      {showMenu ? (
+      {showMenu && (theme === "lowTech" || theme === "highTech") && (
         <MenuWindow
           handleQuality={() => handleQuality()}
           handleMenu={handleMenu}
         />
-      ) : (
-        ""
       )}
 
       <ContainerMenu
@@ -52,24 +50,36 @@ export default function TopMenu(props) {
         languageButton={languageButton}
       />
 
-      {router.pathname !== "/projects/[slug]" ? (
+      {(theme === "lowTech" || theme === "highTech") && (
         <>
-          <div className={styles.navFooter}>
-            <a href="mailto:petr@zem.la" className={styles.brown}>petr@zem.la</a>
-            <a href="https://www.instagram.com/zem.la/" className={styles.brown}>Instagram</a>
-          </div>
-          {/* <Link href={"/articles"} locale={router.locale}>
+          {router.pathname !== "/projects/[slug]" && (
+            <>
+              <div className={styles.navFooter}>
+                <a href="mailto:petr@zem.la" className={styles.brown}>
+                  petr@zem.la
+                </a>
+                <a
+                  href="https://www.instagram.com/zem.la/"
+                  className={styles.brown}
+                >
+                  Instagram
+                </a>
+              </div>
+              {/* <Link href={"/articles"} locale={router.locale}>
             <a className={styles.navArticles}>{t.articles}</a>
           </Link> */}
-        </>
-      ) : (
-        ""
-      )}
-      <div className={styles.navAbout} onClick={() => setShowAbout(!showAbout)}>
-        <p>{t.about}</p>
-      </div>
+            </>
+          )}
+          <div
+            className={styles.navAbout}
+            onClick={() => setShowAbout(!showAbout)}
+          >
+            <p>{t.about}</p>
+          </div>
 
-      {showAbout ? <About handleClose={() => setShowAbout(false)} /> : ""}
+          {showAbout ? <About handleClose={() => setShowAbout(false)} /> : ""}
+        </>
+      )}
     </nav>
   );
 }
@@ -89,50 +99,55 @@ function ContainerMenu(props) {
 
   return (
     <div className={styles.nav}>
-      <div className={`${styles.navLeftContainer} `}>
+      <div className={`${props.theme === "lowTech" || props.theme === "highTech" ? styles.navLeftContainer : styles.navLeftContainerQuality} `}>
         <Link href={"/"} locale={props.router.locale}>
           <a className={styles.blue}>Petr Žemla</a>
         </Link>
       </div>
 
-      <div className={styles.navCenterContainer}>
-        <Link href={"/projects"} locale={props.router.locale}>
-          <a className={styles.yellow}>{props.t.projects}</a>
-        </Link>
-        <Link href={"/commercial"} locale={props.router.locale}>
-          <a className={styles.orange}>{props.t.commercial}</a>
-        </Link>
-        <Link href={"/films"} locale={props.router.locale}>
-          <a className={styles.pink}>{props.t.films}</a>
-        </Link>
-        {/* <Link href={"/print"} locale={props.router.locale}>
+      {(props.theme === "lowTech" || props.theme === "highTech") && (
+        <div className={styles.navCenterContainer}>
+          <Link href={"/projects"} locale={props.router.locale}>
+            <a className={styles.yellow}>{props.t.projects}</a>
+          </Link>
+          <Link href={"/commercial"} locale={props.router.locale}>
+            <a className={styles.orange}>{props.t.commercial}</a>
+          </Link>
+          <Link href={"/films"} locale={props.router.locale}>
+            <a className={styles.pink}>{props.t.films}</a>
+          </Link>
+          {/* <Link href={"/print"} locale={props.router.locale}>
           {props.t.print}
         </Link> */}
-        {/* <Link href={"/articles"} locale={props.router.locale}>
+          {/* <Link href={"/articles"} locale={props.router.locale}>
           {props.t.articles}
         </Link> */}
-      </div>
-
-      <button
-        className={styles.navCenterMenu}
-        onClick={() => props.handleMenu()}
-      ></button>
-
-      <div className={styles.navRightContainer}>
-        <div
-          className={styles.navQuality}
-          onClick={() => props.handleQuality()}
-        >
-          <div className={styles.navQualityBg}></div>
-          <p className={styles.navQualityText}>
-            {props.theme === "lowTech" ? "HIGH" : "LOW"}
-          </p>
         </div>
+      )}
+
+      {(props.theme === "lowTech" || props.theme === "highTech") && (
+        <button
+          className={styles.navCenterMenu}
+          onClick={() => props.handleMenu()}
+        ></button>
+      )}
+      <div className={styles.navRightContainer}>
+        {(props.theme === "lowTech" || props.theme === "highTech") && (
+          <div
+            className={styles.navQuality}
+            onClick={() => props.handleQuality()}
+          >
+            <div className={styles.navQualityBg}></div>
+            <p className={styles.navQualityText}>
+              {props.theme === "lowTech" ? "HIGH" : "LOW"}
+            </p>
+          </div>
+        )}
         <Link
           href={props.router.asPath}
           locale={props.languageButton == "en" ? "en" : "cs"}
         >
-           <a className={styles.green}>{props.languageButton}</a>
+          <a className={styles.green}>{props.languageButton}</a>
         </Link>
       </div>
 
@@ -156,7 +171,7 @@ function MenuWindow(props) {
           <a className={styles.orange}>{t.commercial}</a>
         </Link>
         <Link href={"/films"} locale={router.locale}>
-        <a className={styles.pink}>{t.films}</a>
+          <a className={styles.pink}>{t.films}</a>
         </Link>
         {/* <Link href={"/print"} locale={router.locale}>
           {t.print}

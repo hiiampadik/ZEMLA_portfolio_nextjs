@@ -1,44 +1,10 @@
 import styles from "../styles/QualitySettings.module.scss";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+
 
 
 import Typewriter from "typewriter-effect";
 
-export default function Home(galleries) {
-  const router = useRouter();
-  const [strings, setStrings] = useState(null);
-
-  useEffect(() => {
-    if (router.locale === "cs") {
-      setStrings([
-        "Fotogarfické portfolio",
-        "rafické potrfolio",
-        " protfolio",
-        " portfoiol",
-        "rtfolium",
-        "otrfoloi",
-        " prftoliot",
-        "togarfckié ptrooflio",
-        "otgaréfcki prlftoooi",
-        "fgtrkcooaié frtpliooo",
-      ]);
-    } else {
-      setStrings([
-        "Photogarphy portfolio",
-        "graphy potrfolio",
-        " protfolio",
-        " portfoiol",
-        "rtfolium",
-        "otrfoloi",
-        " prftoliot",
-        "ootgrpahy ptrooflio",
-        "otogarphy prlftoooi",
-        "fgtrgcooay frtpliooo",
-      ]);
-    }
-  }, [router]);
-
+export default function TypeWriter({strings, language}) {
 
   return (
         <Typewriter
@@ -47,7 +13,7 @@ export default function Home(galleries) {
               .pauseFor(600)
               .typeString(strings[0])
               .pauseFor(1000)
-              .deleteChars(router.locale === "cs" ? 17 : 16)
+              .deleteChars(language === "cs" ? 17 : 16)
               .pauseFor(300)
               .typeString(strings[1])
               .pauseFor(1300)
@@ -71,15 +37,15 @@ export default function Home(galleries) {
               .pauseFor(300)
               .typeString(strings[6])
               .pauseFor(900)
-              .deleteChars(router.locale === "cs" ? 23 : 22)
+              .deleteChars(language === "cs" ? 23 : 22)
               .pauseFor(300)
               .typeString(strings[7])
               .pauseFor(500)
-              .deleteChars(router.locale === "cs" ? 20 : 19)
+              .deleteChars(language === "cs" ? 20 : 19)
               .pauseFor(300)
               .typeString(strings[8])
               .pauseFor(500)
-              .deleteChars(router.locale === "cs" ? 21 : 20)
+              .deleteChars(language === "cs" ? 21 : 20)
               .pauseFor(1100)
               .typeString(strings[9])
               .pauseFor(400)

@@ -43,7 +43,7 @@
   border: none;
 }
 
-.navLeftContainer {
+.navLeftContainer, .navLeftContainerQuality {
   align-items: center;
   display: flex;
   gap: $lh;
@@ -58,6 +58,11 @@
     left: 50%;
     transform: translate(-50%);
   }
+}
+
+.navLeftContainerQuality{
+  left: $lh !important;
+  transform: translate(0%) !important;
 }
 
 .navLeftHomepage {

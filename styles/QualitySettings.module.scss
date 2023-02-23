@@ -3,6 +3,8 @@
 .qualitySettingsContainer {
 
   background-color: #fcfcfc;
+  top: 0;
+  left: 0;
 
   a{
 
@@ -30,6 +32,11 @@
 
   z-index: 900;
   pointer-events: none;
+  opacity: 0;
+}
+
+.qualityPhotoShow{
+  opacity: 1;
 }
 
 
@@ -49,6 +56,7 @@
   position: absolute;
   z-index: 800;
 
+  padding: 0.5vw;
 
   h2 {
     margin: 3vh 0;
@@ -66,27 +74,18 @@
 }
 
 .qualityHighContainer {
-  // background-color: black;
-  // mask-image: url(../public/ui/high.svg);
-  // mask-position: center center;
-  // mask-repeat: no-repeat;
-
   position: fixed;
-  top: calc(50% - 6.5vw);
+  top: calc(50% - 6vw);
   left: 50%;
   transform: translate(-50%, -50%);
 
   @media only screen and (max-width: $breakpoint-largetablet-max) {
-    top: calc(50% - 9.5vw);
+    top: calc(50% - 9vw);
     left: 50%;
   }
 }
 
 .qualityLowContainer {
-  // background-color: black;
-  // mask-image: url(../public/ui/low.svg);
-  // mask-position: center center;
-  // mask-repeat: no-repeat;
   position: fixed;
   top: calc(50% + 6vw);
   left: 50%;
@@ -98,18 +97,6 @@
   }
 }
 
-.qualityLowContainer:hover, .qualityLowContainer:active {
-  // left: 50%;
-  // transform: translate(-50%, -50%) scale(1.05);
-  // opacity: 0.6;
-  // background-color: #4763FF;
-
-}
-
-.qualityHighContainer:hover, .qualityHighContainer:active {
-  // left: 50%;
-  // transform: translate(-50%, -50%) scale(1.05);
-}
 
 .qualityText {
   display: block;
@@ -132,35 +119,6 @@
 
 }
 
-
-.qualityLeft {
-  align-items: center;
-  display: flex;
-  gap: $lh;
-
-  position: fixed;
-  top: 1rem;
-  left: $lh;
-  line-height: 100%;
-  z-index: 600;
-
-  // @media only screen and (max-width: $breakpoint-smalltablet-max) {
-  //   left: 50%;
-  //   transform: translate(-50%);
-  // }
-}
-
-.qualityRight {
-  align-items: flex-start;
-  display: flex;
-  gap: $lh;
-
-  position: fixed;
-  top: 1rem;
-  right: $lh * 1.1;
-  line-height: 100%;
-  z-index: 600;
-}
 
 .landingTypewriter{
   position: fixed;

@@ -35,7 +35,12 @@ export default function Layout({ children }) {
           </div>
         );
       } else {
-        return <QualitySettings handleQuality={handleQuality} />;
+        return (
+        <div>
+          <QualitySettings handleQuality={handleQuality} />
+          <TopMenu handleQuality={handleQuality} />
+      </div>
+      )
       }
     }
   };
