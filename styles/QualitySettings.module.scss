@@ -29,8 +29,21 @@
   transform: translate(-50%, -50%);
   
   display: grid;
-  grid-template-columns:  min-content min-content;
-  gap: 3vw;
+  grid-template-columns:  $lh * 10 $lh * 10;
+  max-width: 90vw;
+  gap: 2vw;
+
+  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+    grid-template-columns:  40vw 40vw;
+    gap: 1vw;
+  }
+  @media only screen and (max-width: $breakpoint-mobile-max) {
+    grid-template-columns:  44vw 44vw;
+  }
+  @media only screen and (max-width:400px) {
+    grid-template-columns:  80vw;
+    gap: 5vw;
+  }
 }
 
 
@@ -51,8 +64,11 @@ transition: 0.3s;
   img {
     object-fit: contain;
     max-height: 40vh;
-    max-width: 40vw;
+    width: 100%;
     border-radius: 0.3vh;
+    @media only screen and (max-width:400px) {
+      max-height: 28vh;
+    }
   }
   h1{
     text-align: center;
@@ -69,13 +85,23 @@ transition: 0.3s;
 .qualityHighContainer {
   font-family: NeueMontreal, Arial, sans-serif;
   font-size: $lh * 1.5;
-
+  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+    font-size: 1.5vw * 4;
+  }
+  @media only screen and (max-width:400px) {
+    font-size: $lh * 1.5 * 0.8;
+  }
 }
 
 .qualityLowContainer {
   font-family: Mondwest, 'Times New Roman', Times, serif;
   font-size: $lh * 1.7;
-
+  @media only screen and (max-width: $breakpoint-smalltablet-max) {
+    font-size: 1.5vw * 4;
+  }
+  @media only screen and (max-width:400px) {
+    font-size: $lh * 1.7  * 0.8;
+  }
 }
 
 
@@ -115,11 +141,7 @@ transition: 0.3s;
   text-align: left;
   opacity: 0.1;
 
-  // @media only screen and (max-width: $breakpoint-smalltablet-max) {
-  //   left: $lh * 0.9;
-  //   top: 1rem;
-  //   inline-size: min-content;
-  // }
+
 }
 
 .typewriterShow{
