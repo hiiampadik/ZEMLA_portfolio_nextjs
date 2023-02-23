@@ -2,7 +2,6 @@ import styles from "../styles/QualitySettings.module.scss";
 import stylesDraggable from "../styles/Draggable.module.scss";
 import stylesMenu from "../styles/TopMenu.module.scss";
 
-import {useSpring} from "@react-spring/web";
 import BlockContent from "./BlockContent";
 import AnimatedFigure from "./AnimatedFigure";
 
@@ -13,8 +12,6 @@ import {useRouter} from "next/router";
 import cs from "./languages/cs";
 import en from "./languages/en";
 
-import Link from "next/link";
-
 import React, {useState, useEffect} from "react";
 import Draggable from "react-draggable";
 
@@ -24,7 +21,6 @@ export default function QualitySettings(props) {
   const [showAbout, setShowAbout] = useState(false);
   const router = useRouter();
   const t = router.locale === "cs" ? cs : en;
-  const languageButton = router.locale === "cs" ? "En" : "Cz";
 
   const client = sanityClient({
     projectId: "3w5q4fmv",
@@ -48,7 +44,7 @@ export default function QualitySettings(props) {
 
   const [quality, setQuality] = useState(null);
 
-  const csString = [
+  const stringCs = [
     "Fotogarfické portfolio",
     "rafické potrfolio",
     " protfolio",
@@ -59,9 +55,9 @@ export default function QualitySettings(props) {
     "togarfckié ptrooflio",
     "otgaréfcki prlftoooi",
     "fgtrkcooaié frtpliooo",
-  ]
+  ]  
 
-  const enString = [
+  const stringEn = [
     "Photogarphy portfolio",
     "graphy potrfolio",
     " protfolio",
@@ -73,6 +69,7 @@ export default function QualitySettings(props) {
     "otogarphy prlftoooi",
     "fgtrgcooay frtpliooo",
   ]
+  
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -87,15 +84,15 @@ export default function QualitySettings(props) {
     };
   }, []);
 
+
   return (
     <nav className={styles.qualitySettingsContainer}>
 
-      {router.locale === 'cs' ?
-      <Typewriter strings={csString} language={'cs'}/>
+    {router.locale === 'cs' ?
+      <Typewriter strings={stringCs} language={'cs'}/>
       :
-      <Typewriter strings={enString} language={'en'}/>
-      }
-
+      <Typewriter strings={stringEn} language={'en'}/>
+  }
       {!error && data ? (
         <>
           <AnimatedFigure
