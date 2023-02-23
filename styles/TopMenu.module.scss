@@ -164,10 +164,12 @@
   }
 }
 
-.navQuality:hover,
-.navQuality:active {
+
+@media (hover: hover){
+.navQuality:hover{
   .navQualityBg {
     transform: rotate(180deg);
+  }
   }
 }
 
@@ -283,12 +285,12 @@
   }
 }
 
-.navAbout:hover,
-.navAbout:active {
-  filter: drop-shadow($lh / 4 $lh / 4 0 black);
-  transform: translate(-$lh / 4, -$lh / 4);
-}
-
+@media (hover: hover){
+  .navAbout:hover{
+    filter: drop-shadow($lh / 4 $lh / 4 0 black);
+    transform: translate(-$lh / 4, -$lh / 4);
+    }
+ }
 
 .navArticles,
 .navFooter {
