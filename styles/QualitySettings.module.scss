@@ -29,7 +29,7 @@
   transform: translate(-50%, -50%);
   
   display: grid;
-  grid-template-columns:  $lh * 10 $lh * 10;
+  grid-template-columns:  $lh * 12 $lh * 12;
   max-width: 90vw;
   gap: 2vw;
 
@@ -63,7 +63,7 @@ transition: 0.3s;
 
   img {
     object-fit: contain;
-    max-height: 40vh;
+    max-height: 60vh;
     width: 100%;
     border-radius: 0.3vh;
     @media only screen and (max-width:400px) {
