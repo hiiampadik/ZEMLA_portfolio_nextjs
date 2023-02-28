@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://pz-next.vercel.app/",
+  siteUrl: "https://www.zem.la/",
   generateRobotsTxt: true, // (optional)
   // ...other options
 };

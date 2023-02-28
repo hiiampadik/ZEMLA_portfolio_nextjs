@@ -27,7 +27,7 @@ export default function Figure(props) {
       ) : (
         <img
           className={props.class != null ? props.class : ""}
-          src={builder.image(props.image).auto("format").format('png').url()}
+          src={builder.image(props.image).auto("format").format('jpg').url()}
           alt={props.alt}
           sizes={getSizes()}
           srcSet={`
