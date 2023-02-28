@@ -14,7 +14,6 @@ export default function Figure(props) {
       return props.sizes;
     }
   }
-
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <>
@@ -28,7 +27,7 @@ export default function Figure(props) {
         <img
           className={props.class != null ? props.class : ""}
           src={builder.image(props.image).auto("format").format('jpg').url()}
-          alt={props.alt}
+          alt={props.image.alt}
           sizes={getSizes()}
           srcSet={`
                   ${builder
