@@ -10,6 +10,7 @@ export default function Header() {
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 	        <meta charSet="utf-8" />
             <link rel="icon" href="/favicon.png" />
+            <link rel="stylesheet" href="https://use.typekit.net/xxg4kak.css" />
         </Head>
     )
 }

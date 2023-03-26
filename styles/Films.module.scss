@@ -26,7 +26,7 @@
   transition: 0.3s;
   h1 {
     font-family: var(--menufont);
-    font-weight: var(--menuweight);
+    font-weight: 400;
     font-size: 2rem;
     line-height: 1em;
     @media only screen and (max-width: $breakpoint-mobile-max) {
@@ -93,9 +93,9 @@
   border-radius: var(--borderradius);
 
   font-family: var(--menufont);
-  font-weight: var(--menuweight);
+  font-weight: 400;
   font-size: var(--menusize);
-  line-height: 1em;
+  line-height: 1.15em;
 
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     left: $lh;

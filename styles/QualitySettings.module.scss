@@ -13,7 +13,7 @@
       text-transform: capitalize;
   
       font-family: var(--menufont);
-      font-weight: var(--menuweight);
+      font-weight: 400;
       text-align: center;
       font-size: var(--menusize);
       line-height: 1rem;
@@ -134,7 +134,7 @@ font-weight: 500;
   left: $lh;
 
   font-family: var(--menufont);
-  font-weight: var(--menuweight);
+  font-weight: 400;
   font-size: var(--menusize);
   line-height: 1em;
   z-index: 600;

@@ -1,67 +1,13 @@
 @import "_variables.scss";
 
-// NEUE MONTREAL
-
-@font-face {
-  font-family: "NeueMontreal";
-  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Thin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NeueMontreal";
-  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Book.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NeueMontreal";
-  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Italic.otf")
-    format("opentype");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NeueMontreal";
-  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Medium.otf")
-    format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NeueMontreal";
-  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-SemiBolditalic.otf")
-    format("opentype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NeueMontreal";
-  src: url("/fonts/otf_neuemontreal/PPNeueMontreal-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-
 // Neue Bit
 
 @font-face {
   font-family: "Mondwest";
   src: url("/fonts/otf_bit/PPMondwest-Bold.otf") format("opentype");
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 html,
@@ -112,11 +58,14 @@ figure {
   margin: 0;
 }
 
+strong {
+  font-weight: 600;
+}
+
 /* Themes */
 :root {
-  --menufont: NeueMontreal, Helvetica, Arial, sans-serif;
-  --menuweight: 500;
-  --menusize: 1rem;
+  --menufont: neue-haas-unica, sans-serif;
+  --menusize: 1.05rem;
 
 
   --borderradius: calc(0.3rem); 
@@ -128,8 +77,7 @@ figure {
 
 [data-theme="lowTech"] {
   --menufont: Mondwest, Times, serif;
-  --menuweight: 500;
-  --menusize: 1.1rem;
+  --menusize: 1.05rem;
 
   --borderradius: 0;
 
@@ -139,9 +87,8 @@ figure {
 }
 
 [data-theme="highTech"] {
-  --menufont: NeueMontreal, Helvetica, Arial, sans-serif;
-  --menuweight: 500;
-  --menusize: 1rem;
+  --menufont: neue-haas-unica, sans-serif;
+  --menusize: 1.05rem;
 
   --borderradius: calc(0.3rem); 
 
@@ -156,7 +103,7 @@ figure {
 
 body{
   font-family: var(--menufont);
-  font-weight: var(--menuweight);
+  font-weight: 400;
   background-color: #fcfcfc;
   color: black;
 }
