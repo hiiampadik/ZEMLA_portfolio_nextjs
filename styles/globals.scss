@@ -65,7 +65,7 @@ strong {
 /* Themes */
 :root {
   --menufont: neue-haas-unica, sans-serif;
-  --menusize: 1.05rem;
+  --menusize: 1rem;
 
 
   --borderradius: calc(0.3rem); 
@@ -88,7 +88,7 @@ strong {
 
 [data-theme="highTech"] {
   --menufont: neue-haas-unica, sans-serif;
-  --menusize: 1.05rem;
+  --menusize: 1rem;
 
   --borderradius: calc(0.3rem); 
 
@@ -104,7 +104,7 @@ strong {
 body{
   font-family: var(--menufont);
   font-weight: 400;
-  background-color: #fcfcfc;
+  // background-color: #fcfcfc;
   color: black;
 }
 

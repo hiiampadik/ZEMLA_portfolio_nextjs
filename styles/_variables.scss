@@ -25,16 +25,52 @@ $breakpoint-2k-max: 3839px;
 $breakpoint-4k-min: 3840px;
 
 
-// 
+.overlay{
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  user-select: none;
+  pointer-events: none;
+}
 
-// .navQuality:active{
-//   p {
-//     color: #9539ce;
-//   }
-//   div{
-//     background-color: #9539ce;
-//   }
-// }
+.hideContent{
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.showContent{
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes hide{
+  0%   {
+    background-color: rgba(255,255,255, 0);
+    backdrop-filter: blur(0rem);
+  }
+  100%  {
+    background-color: rgba(255,255,255, 1);
+    backdrop-filter: blur(3rem);
+  }
+}
+
+@keyframes show{
+  0%   {
+    background-color: rgba(255,255,255, 1);
+    backdrop-filter: blur(3rem);
+  }
+  100%  {
+    background-color: rgba(255,255,255, 0);
+    backdrop-filter: blur(0rem);
+  }
+}
+
 
 @media (hover: hover){
   .navQuality:hover{
@@ -47,72 +83,45 @@ $breakpoint-4k-min: 3840px;
   }
 }
 
-// .purple:active{
-//      color: #9539ce
-// }
-
 @media (hover: hover){
   .purple:hover{
-    color: #9539ce
+    color: #9539ce;
+
   }
 }
-
-// .blue:active{
-//   color: #4763FF;
-// }
 
 @media (hover: hover){
   .blue:hover{
-    color: #4763FF
+    color: #4763FF;
   }
 }
-
-// .yellow:active{
-//   color: #F7C644;
-// }
 
 @media (hover: hover){
   .yellow:hover{
-    color: #F7C644
+    color: #F7C644;
   }
 }
-
-// .orange:active{
-//   color: #FF7347;
-// }
 
 @media (hover: hover){
   .orange:hover{
-    color: #FF7347
+    color: #FF7347;
   }
 }
-
-// .brown:active{
-//      color: #906514
-// }
 
 @media (hover: hover){
   .brown:hover{
-    color: #906514
+    color: #906514;
   }
 }
-
-// .pink:active{
-//      color: #f7afbc
-// }
 
 @media (hover: hover){
   .pink:hover{
-    color: #f7afbc
+    color: #f7afbc;
   }
 }
 
-// .green:active{
-//      color: #65ac9b
-// }
-
 @media (hover: hover){
   .green:hover{
-    color: #65ac9b
+    color: #65ac9b;
   }
 }
