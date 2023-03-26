@@ -17,13 +17,37 @@ export default function Layout({ children }) {
     setMounted(true);
   }, []);
 
-  const handleQuality = (newTheme) => {
+  const handleQualityNow = (newTheme) => {
     if (newTheme == "lowTech") {
       setTheme("lowTech");
     } else if (newTheme == "highTech") {
       setTheme("highTech");
     }
+  }
+
+
+  const [animationClass, setAnimationClass] = useState('');
+
+  const getAnimationClass = () => {
+    if (animationClass === 'hideContent'){
+      return styles.hideContent;
+    } else if (animationClass === 'showContent'){
+      return styles.showContent;
+    }
+  }
+
+  const handleQuality = (newTheme) => {  
+    setAnimationClass('hideContent');
+    setTimeout(() => {
+      if (newTheme == "lowTech") {
+        setTheme("lowTech");
+      } else if (newTheme == "highTech") {
+        setTheme("highTech");
+      }
+      setAnimationClass('showContent');
+    }, 500);
   };
+
 
   const getContent = () => {
     if (mounted) {
@@ -37,8 +61,8 @@ export default function Layout({ children }) {
       } else {
         return (
         <div>
-          <QualitySettings handleQuality={handleQuality} />
-          <TopMenu handleQuality={handleQuality} />
+          <QualitySettings handleQuality={handleQualityNow} />
+          <TopMenu handleQuality={handleQualityNow} />
       </div>
       )
       }
@@ -48,6 +72,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header />
+      <div className={`${styles.overlay} ${getAnimationClass()}`}></div>
       {getContent()}
     </div>
   );
