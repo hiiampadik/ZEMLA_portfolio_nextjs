@@ -45,7 +45,7 @@ export default function Layout({ children }) {
         setTheme("highTech");
       }
       setAnimationClass('showContent');
-    }, 500);
+    }, 700);
   };
 
 
