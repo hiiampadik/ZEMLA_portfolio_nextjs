@@ -12,7 +12,7 @@
 }
 
 .navBgBorder{
-  background-color: #fcfcfc;
+  background-color: white;
   border-bottom: 1.5px black solid;
 }
 
@@ -52,7 +52,7 @@
   top: 1rem;
   left: $lh;
   line-height: 100%;
-  z-index: 600;
+  z-index: 1600;
 
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     left: 50%;
@@ -123,7 +123,7 @@
   top: 1rem;
   right: $lh;
   line-height: 100%;
-  z-index: 600;
+  z-index: 1600;
 
   .navQuality {
     cursor: pointer;
@@ -201,7 +201,7 @@
     top: 0;
     left: 0;
     padding: $lh;
-    z-index: 800;
+    z-index: 2000;
   }
 
   a {

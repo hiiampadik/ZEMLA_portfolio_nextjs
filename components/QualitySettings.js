@@ -12,7 +12,7 @@ import {useRouter} from "next/router";
 import cs from "./languages/cs";
 import en from "./languages/en";
 
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Draggable from "react-draggable";
 
 import Typewriter from "../components/Typewriter";
@@ -42,20 +42,6 @@ export default function QualitySettings(props) {
     }
   };
 
-  const [quality, setQuality] = useState(null);
-
-  const [windowSize, setWindowSize] = useState(getWindowSize());
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
 
   return (
     <nav className={styles.qualitySettingsContainer}>
@@ -69,6 +55,7 @@ export default function QualitySettings(props) {
           >
             <Figure
               image={data[0].images.high}
+              alwaysShow={true}
             />
             <h1>HIGH</h1>
           </button>
@@ -78,6 +65,7 @@ export default function QualitySettings(props) {
           >
             <Figure
               image={data[0].images.low}
+              alwaysShow={true}
             />
             <h1>LOW</h1>
           </button>
@@ -122,11 +110,11 @@ function Help(props) {
   );
 }
 
-function getWindowSize() {
-  if (typeof window !== "undefined") {
-    const {innerWidth, innerHeight} = window;
-    return {innerWidth, innerHeight};
-  } else {
-    return null;
-  }
-}
+// function getWindowSize() {
+//   if (typeof window !== "undefined") {
+//     const {innerWidth, innerHeight} = window;
+//     return {innerWidth, innerHeight};
+//   } else {
+//     return null;
+//   }
+// }

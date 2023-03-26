@@ -53,17 +53,18 @@ export default function Layout({ children }) {
     if (mounted) {
       if (theme === "lowTech" || theme === "highTech") {
         return (
-          <div>
+          <>
             <TopMenu handleQuality={handleQuality} />
             <main className={styles.main}>{children}</main>
-          </div>
+          </>
         );
       } else {
         return (
-        <div>
-          <QualitySettings handleQuality={handleQualityNow} />
-          <TopMenu handleQuality={handleQualityNow} />
-      </div>
+          <>
+            <TopMenu handleQuality={handleQualityNow} />
+            <main className={styles.main}>{children}</main>
+            <QualitySettings handleQuality={handleQualityNow} />
+          </>
       )
       }
     }
