@@ -302,6 +302,47 @@
     }
  }
 
+.navWhy{
+  position: fixed;
+  top: calc(1rem - $lh * 0.2);
+  left: $lh * 6;
+
+  background: black;
+  color: white;
+  border: 1.5px white solid;
+  padding: calc($lh * 0.2) calc($lh * 0.4);
+  z-index: 700;
+  cursor: pointer;
+
+  text-align: center;
+  transition: 0.3s;
+
+  border-radius: var(--borderradius);
+
+  p {
+    font-family: var(--menufont);
+    font-weight: 400;
+    font-size: var(--menusize);
+    line-height: 1em;
+
+    margin: 0;
+  }
+
+  filter: drop-shadow(0 0 0 black);
+
+  @media only screen and (max-width: 400px) {
+    // right: $lh * 2.5;
+    left: $lh * 5;
+  }
+}
+
+@media (hover: hover){
+  .navWhy:hover{
+    filter: drop-shadow((-$lh / 4) (-$lh / 4)  0 black);
+    transform: translate($lh / 4, $lh / 4);
+    }
+ }
+
 .navArticles,
 .navFooter {
   font-family: var(--menufont);

@@ -5,22 +5,18 @@ import { useTheme } from "next-themes";
 
 const builder = imageUrlBuilder(client);
 
-export default function Figure(props) {
+export default function Figure({
+  sizes = '50vmin',
+  ...props
+}) {
   const { theme, setTheme } = useTheme();
-  const getSizes = () => {
-    if (props.sizes === undefined){
-      return '50vmin'
-    } else {
-      return props.sizes;
-    }
-  }
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <>
       {theme !== 'system' || (theme === 'system' && props.alwaysShow === true ) ?
         <>
-          {theme === "lowTech" ? (
+          {theme === "lowTech"  ? (
             <img
               className={props.class != null ? props.class : ""}
               src={builder.image(props.image).auto("format").format('png').width(600).url()}
@@ -31,7 +27,7 @@ export default function Figure(props) {
               className={props.class != null ? props.class : ""}
               src={builder.image(props.image).auto("format").format('jpg').url()}
               alt={props.alt}
-              sizes={getSizes()}
+              sizes={sizes}
               srcSet={`
                       ${builder
                         .image(props.image)

@@ -57,7 +57,7 @@ export default function QualitySettings(props) {
               image={data[0].images.high}
               alwaysShow={true}
             />
-            <h1>HIGH</h1>
+            <h1>HIGH TECH <span>{`(ㆆ_ㆆ)`}</span></h1>
           </button>
           <button
             className={styles.qualityLowContainer}
@@ -67,13 +67,13 @@ export default function QualitySettings(props) {
               image={data[0].images.low}
               alwaysShow={true}
             />
-            <h1>LOW</h1>
+            <h1>LOW TECH <span>{`{ ^_^ }`}</span></h1>
           </button>
         </div>
     }
 
       <div
-        className={stylesMenu.navAbout}
+        className={stylesMenu.navWhy}
         onClick={() => setShowAbout(!showAbout)}
       >
         <p>{t.question}</p>
