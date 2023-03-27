@@ -30,20 +30,20 @@ export default function Home(props) {
       <Swiper
         loop={true}
         className={styles.homeSwiper}
+        noSwiping={true}
         modules={[Autoplay, EffectFade]}
         effect="fade"
         fadeEffect={{
           crossFade: true, // enables slides to cross fade
         }}
-        speed={300}
+        speed={700}
         autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
+          delay: 4000,
         }}
       >
         {gallery?.map((image) => {
           return (
-            <SwiperSlide key={image._key} className={styles.swiperSlide}>
+            <SwiperSlide lazy={true} key={image._key} className={styles.swiperSlide}>
               <Figure
                 image={image}
                 sizes={"(min-width: 768px) 70vw, (min-width: 576px) 80vw, 95vw"}

@@ -1,6 +1,8 @@
 @import "_variables.scss";
 
 .homeSwiper{
+  pointer-events: none;
+  user-select: none;
   position: fixed;
   top: 49%;
   left: 50%;
@@ -21,6 +23,7 @@
 
 .swiperSlide{
   img{
+    pointer-events: none;
     object-fit: contain;
     width: 100%;
     height: 100%;

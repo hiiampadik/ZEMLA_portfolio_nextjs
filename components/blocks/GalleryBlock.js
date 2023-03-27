@@ -32,7 +32,7 @@ export default function GalleryBlock(props) {
     >
       {props.images?.map((el, index) => {
         return (
-          <SwiperSlide key={index} className={styles.swiperSlide}>
+          <SwiperSlide lazy={true} key={index} className={styles.swiperSlide}>
             <Figure
               image={el.asset}
               sizes={`
