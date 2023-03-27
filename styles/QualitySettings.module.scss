@@ -52,27 +52,22 @@
   background: none;
   padding: 0;
   cursor: pointer;
-
-  display: grid;
-  grid-template-columns:  1fr;
-  flex-direction: column;
-  align-items: stretch;
-  gap: $lh * 0.5;
-  
   font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  gap: $lh * 0.5;
 
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     gap: $lh * 0.3;
   }
 
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 100%;
+    flex-direction: row;
     gap: $lh * 0.5;
   }
   @media only screen and (max-width: $breakpoint-mobile-max) {
-    grid-template-columns: 100%;
-    grid-template-rows: 80% 20%;
+    flex-direction: column;
   }
 
   img {
@@ -81,17 +76,26 @@
     width: 100%;
     height: calc(100vh - $lh *9);
     border-radius: $lh;
-    @media only screen and (max-width: $breakpoint-smallscreen-max) {
-      height: calc(100vh - $lh *9);
-    }
+
     @media only screen and (max-width: $breakpoint-smalltablet-max) {
       height: 100%;
+      width: 60vw;
+    }
+    @media only screen and (max-width: $breakpoint-mobile-max) {
+      width: 100%;
+      height: calc(100% - $lh * 3.5);
     }
 
   }
   h1{
     text-align: left;
     font-weight: 500;
+    @media only screen and (max-width: $breakpoint-smalltablet-max) {
+      width: min-content;
+    }
+    @media only screen and (max-width: $breakpoint-mobile-max) {
+      width: auto;
+    }
     span{
       @media only screen and (max-width: $breakpoint-smallscreen-max) {
         display: none
@@ -111,7 +115,7 @@
 .qualityHighContainer {
   font-family: neue-haas-unica, sans-serif;
   font-size: $lh * 1.5  * 1.2;
-  line-height: 1.1em ;
+  line-height: 1.1em;
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     font-size: $lh * 1.5 ;
   }
@@ -120,7 +124,7 @@
 .qualityLowContainer {
   font-family: Mondwest, 'Times New Roman', Times, serif;
   font-size: $lh * 1.7 * 1.2;
-  line-height: 1.1em ;
+  line-height: 1.1em;
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     font-size: $lh * 1.7;
   }
