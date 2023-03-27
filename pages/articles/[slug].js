@@ -99,7 +99,7 @@ export default function Article(article) {
   };
 
   return (
-    <Layout title={router.locale === "cs" ? article.title.cs: article.title.en}>
+    <Layout title={router.locale === "cs" ? article.title?.cs: article.title?.en}>
       <div className={styles.articleContainer}>{getContent()}</div>
     </Layout>
   );
