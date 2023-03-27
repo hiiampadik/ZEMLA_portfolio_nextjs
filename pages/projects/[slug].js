@@ -26,7 +26,7 @@ export default function Project(project) {
   }, [project, theme]);
 
   return (
-    <Layout>
+    <Layout title={router.locale === "cs" ? project.title?.cs : project.title?.en}>
       <div className={styles.projectContainer}>
         {gallery ? <GalleryBlock images={gallery} /> : ""}
       </div>

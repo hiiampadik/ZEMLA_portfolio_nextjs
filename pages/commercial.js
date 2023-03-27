@@ -7,8 +7,15 @@ import Draggable from "react-draggable";
 import client from "../client";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
+
+import cs from "../components/languages/cs";
+import en from "../components/languages/en";
 
 export default function Commercial(commercial) {
+  const router = useRouter();
+  const t = router.locale === "cs" ? cs : en;
+
   const { theme, setTheme } = useTheme();
   const [gallery, setGallery] = useState(null);
   const [zIndexes, setZIndexes] = useState(null);
@@ -57,7 +64,7 @@ export default function Commercial(commercial) {
 
 
   return (
-    <Layout>
+    <Layout title={t.commercial}>
       <div className={styles.boundParent}>
         {gallery?.map((image, i) => {
           return (

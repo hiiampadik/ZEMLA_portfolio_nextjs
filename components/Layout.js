@@ -1,5 +1,4 @@
 import Header from "../components/Head";
-import Footer from "../components/Footer";
 import TopMenu from "../components/TopMenu";
 import QualitySettings from "./QualitySettings";
 
@@ -9,7 +8,10 @@ import styles from "../styles/Layout.module.scss";
 
 import { useTheme } from "next-themes";
 
-export default function Layout({ children }) {
+export default function Layout({ 
+  title = 'Petr Žemla',
+  children 
+}) {
   const { theme, setTheme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
@@ -72,7 +74,7 @@ export default function Layout({ children }) {
 
   return (
     <div>
-      <Header />
+      <Header title={title}/>
       <div className={`${styles.overlay} ${getAnimationClass()}`}></div>
       {getContent()}
     </div>

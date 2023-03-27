@@ -8,12 +8,16 @@ import Link from "next/link";
 import client from "../client";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
-
+import cs from "../components/languages/cs";
+import en from "../components/languages/en";
 import Figure from "../components/Figure";
 
 export default function Projects(props) {
   const router = useRouter();
+  const t = router.locale === "cs" ? cs : en;
+
   const { theme, setTheme } = useTheme();
+
 
   const getDate = (article) => {
     const date = new Date(article._createdAt);
@@ -37,7 +41,7 @@ export default function Projects(props) {
   };
 
   return (
-    <Layout>
+    <Layout title={t.articles}>
       <div className={styles.articlesContainer}>
         {props.articles?.map((article, i) => {
           const slug = article._id ? article.slug?.current : "";

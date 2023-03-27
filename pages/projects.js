@@ -9,10 +9,12 @@ import { useEffect, useState } from "react";
 
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-
+import cs from "../components/languages/cs";
+import en from "../components/languages/en";
 
 export default function Projects(props) {
   const router = useRouter();
+  const t = router.locale === "cs" ? cs : en;
 
   const [positions, setPositions] = useState(null);
   const { theme, setTheme } = useTheme();
@@ -65,7 +67,7 @@ export default function Projects(props) {
   };
 
   return (
-    <Layout>
+    <Layout title={t.projects}>
       <Emojis positions={positions} />
       <div
         className={`${styles.filmsReload} ${getStyles()}`}

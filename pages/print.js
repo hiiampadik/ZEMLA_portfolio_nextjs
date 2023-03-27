@@ -35,7 +35,7 @@ export default function Print(print) {
   };
 
   return (
-    <Layout>
+    <Layout title={t.print}>
       <div className={styles.printInfoContainer}>
         <BlockContent
           blocks={router.locale === "cs" ? print.cs : print.en}

@@ -11,10 +11,13 @@ import ReactPlayer from "react-player";
 
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import cs from "../components/languages/cs";
+import en from "../components/languages/en";
 
 export default function Films(props) {
   const router = useRouter();
-
+  const t = router.locale === "cs" ? cs : en;
+  
   const [positions, setPositions] = useState(null);
   const { theme, setTheme } = useTheme();
 
@@ -76,7 +79,7 @@ export default function Films(props) {
   };
 
   return (
-    <Layout>
+    <Layout title={t.films}>
       <Emojis positions={positions} />
       <div
         className={`${styles.filmsReload} ${getStyles()}`}

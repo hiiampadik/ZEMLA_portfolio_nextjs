@@ -45,7 +45,7 @@ $breakpoint-4k-min: 3840px;
 
 .showContent{
   animation-name: show;
-  animation-duration: 0.7s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
@@ -64,6 +64,10 @@ $breakpoint-4k-min: 3840px;
 
 @keyframes show{
   0%   {
+    background-color: rgba(255,255,255, 1);
+    backdrop-filter: blur(2rem);
+  }
+  30%   {
     background-color: rgba(255,255,255, 1);
     backdrop-filter: blur(2rem);
   }
