@@ -88,24 +88,30 @@ font-weight: 500;
 }
 
 .qualityHighContainer {
-  font-family: NeueMontreal, Arial, sans-serif;
+  font-family: neue-haas-unica, sans-serif;
   font-size: $lh * 1.5;
+  line-height: $lh * 1.5;
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     font-size: 1.5vw * 4;
+    line-height: 1.5vw * 4;
   }
   @media only screen and (max-width:400px) {
     font-size: $lh * 1.5 * 0.8;
+    line-height: $lh * 1.5 * 0.8;
   }
 }
 
 .qualityLowContainer {
   font-family: Mondwest, 'Times New Roman', Times, serif;
   font-size: $lh * 1.7;
+  line-height: $lh * 1.7;
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     font-size: 1.7vw * 4;
+    line-height: 1.7vw * 4;
   }
   @media only screen and (max-width:400px) {
     font-size: $lh * 1.7  * 0.8;
+    line-height: $lh * 1.7  * 0.8;
   }
 }
 
@@ -123,7 +129,7 @@ font-weight: 500;
   // max-width: 800px;
   height: auto;
 
-  font-family: NeueMontreal, Helvetica, Arial, sans-serif;
+  font-family: neue-haas-unica, sans-serif;
   font-weight: 500;
   text-align: center;
   font-size: 1.2rem;
