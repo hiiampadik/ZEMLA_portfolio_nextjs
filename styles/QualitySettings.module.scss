@@ -28,13 +28,13 @@
 }
 .qualityContainer{
   position: fixed;
-  top: $lh * 3;
+  top: $lh * 5;
   left: $lh;
   right: $lh;
   
   display: grid;
   grid-template-columns:  1fr 1fr;
-  gap: $lh * 0.3;
+  gap: $lh * 0.15;
 
   @media only screen and (max-width: $breakpoint-smalltablet-max) {
     grid-template-columns:  1fr;
@@ -56,7 +56,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: $lh * 0.5;
+  gap: $lh * 0.3;
 
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     gap: $lh * 0.3;
@@ -74,8 +74,8 @@
     transition: 0.4s;
     object-fit: cover;
     width: 100%;
-    height: calc(100vh - $lh *9);
-    border-radius: $lh;
+    height: calc(100vh - $lh *10);
+    border-radius: var(--borderradius);
 
     @media only screen and (max-width: $breakpoint-smalltablet-max) {
       height: 100%;
@@ -88,15 +88,18 @@
 
   }
   h1{
-    text-align: left;
+    text-align: center;
     font-weight: 500;
+    width: 100%;
     @media only screen and (max-width: $breakpoint-smalltablet-max) {
       width: min-content;
+      text-align: left;
     }
     @media only screen and (max-width: $breakpoint-mobile-max) {
       width: auto;
     }
     span{
+      display: none;
       @media only screen and (max-width: $breakpoint-smallscreen-max) {
         display: none
       }
@@ -114,8 +117,8 @@
 
 .qualityHighContainer {
   font-family: neue-haas-unica, sans-serif;
-  font-size: $lh * 1.5  * 1.2;
-  line-height: 1.1em;
+  font-size: $lh * 1.5  * 1.4;
+  line-height: 1em;
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     font-size: $lh * 1.5 ;
   }
@@ -123,10 +126,10 @@
 
 .qualityLowContainer {
   font-family: Mondwest, 'Times New Roman', Times, serif;
-  font-size: $lh * 1.7 * 1.2;
+  font-size: $lh * 1.6 * 1.4;
   line-height: 1.1em;
   @media only screen and (max-width: $breakpoint-largetablet-max) {
-    font-size: $lh * 1.7;
+    font-size: $lh * 1.6;
   }
 
   img {

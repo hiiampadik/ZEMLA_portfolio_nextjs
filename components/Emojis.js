@@ -26,7 +26,7 @@ export default function Emojis(props) {
   };
 
   return (
-    <div className={styles.emojisContainer}>
+    <div className={`${styles.emojisContainer} ${props.qualityEmojis ? styles.qualityEmojis : ''}`}>
       {positions ? (
         <>
           <div style={{ top: positions[0][0], left: positions[0][1] }}>

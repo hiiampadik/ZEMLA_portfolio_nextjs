@@ -15,10 +15,9 @@ import en from "./languages/en";
 import React, {useState} from "react";
 import Draggable from "react-draggable";
 
-import Typewriter from "../components/Typewriter";
-
 export default function QualitySettings(props) {
   const [showAbout, setShowAbout] = useState(false);
+
   const router = useRouter();
   const t = router.locale === "cs" ? cs : en;
 
@@ -41,7 +40,6 @@ export default function QualitySettings(props) {
       // return props.data[0].text.cs;
     }
   };
-
 
   return (
     <nav className={styles.qualitySettingsContainer}>
@@ -110,11 +108,3 @@ function Help(props) {
   );
 }
 
-// function getWindowSize() {
-//   if (typeof window !== "undefined") {
-//     const {innerWidth, innerHeight} = window;
-//     return {innerWidth, innerHeight};
-//   } else {
-//     return null;
-//   }
-// }

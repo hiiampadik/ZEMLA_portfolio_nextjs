@@ -19,11 +19,10 @@ export default function Films(props) {
   const t = router.locale === "cs" ? cs : en;
   
   const [positions, setPositions] = useState(null);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   const [showWindow, setShowWindow] = useState(null);
 
-  const [openedProject, setOpenedProject] = useState(null);
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   useEffect(() => {

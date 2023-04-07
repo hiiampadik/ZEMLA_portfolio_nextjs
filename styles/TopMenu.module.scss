@@ -328,7 +328,6 @@
     margin: 0;
   }
 
-  filter: drop-shadow(0 0 0 black);
 
   @media only screen and (max-width: 400px) {
     // right: $lh * 2.5;
@@ -338,8 +337,8 @@
 
 @media (hover: hover){
   .navWhy:hover{
-    filter: drop-shadow((-$lh / 4) (-$lh / 4)  0 black);
-    transform: translate($lh / 4, $lh / 4);
+    filter: drop-shadow((-$lh / 4) (-$lh / 4) 0px black);
+    transform: translate(($lh / 4), ($lh / 4));
     }
  }
 
