@@ -305,7 +305,7 @@
 .navWhy{
   position: fixed;
   top: calc(1rem - $lh * 0.2);
-  left: $lh * 6;
+  right: $lh * 2.9;
 
   background: black;
   color: white;
@@ -328,11 +328,6 @@
     margin: 0;
   }
 
-
-  @media only screen and (max-width: 400px) {
-    // right: $lh * 2.5;
-    left: $lh * 5;
-  }
 }
 
 @media (hover: hover){
