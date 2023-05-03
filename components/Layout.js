@@ -56,16 +56,16 @@ export default function Layout({
       if (theme === "lowTech" || theme === "highTech") {
         return (
           <>
-            <TopMenu handleQuality={handleQuality} />
+            <TopMenu handleQuality={handleQuality} showQualitySettings={false}/>
             <main className={styles.main}>{children}</main>
           </>
         );
       } else {
         return (
           <>
-            <TopMenu handleQuality={handleQualityNow} />
-            <main className={styles.main}>{children}</main>
+            <TopMenu handleQuality={handleQualityNow} showQualitySettings={false}/>
             <QualitySettings handleQuality={handleQualityNow} />
+            <main className={styles.main}>{children}</main>
           </>
       )
       }

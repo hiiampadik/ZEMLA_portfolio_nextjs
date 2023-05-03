@@ -1,7 +1,7 @@
 import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
-import Image from "next/image";
 import { useTheme } from "next-themes";
+import {useState} from 'react'
 
 const builder = imageUrlBuilder(client);
 
@@ -9,7 +9,13 @@ export default function Figure({
   sizes = '50vmin',
   ...props
 }) {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+
+  const [loaded, setLoaded] = useState(false);
+
+  const handleLoad = () => {
+    setLoaded(true);
+  };
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
@@ -21,6 +27,8 @@ export default function Figure({
               className={props.class != null ? props.class : ""}
               src={builder.image(props.image).auto("format").format('png').width(600).url()}
               alt={props.alt}
+              onLoad={handleLoad}
+              style={{ visibility: loaded ? 'visible' : 'hidden' }}
             />
           ) : (
             <img
@@ -28,6 +36,8 @@ export default function Figure({
               src={builder.image(props.image).auto("format").format('jpg').url()}
               alt={props.alt}
               sizes={sizes}
+              onLoad={handleLoad}
+              style={{ display: loaded ? 'block' : 'none' }}
               srcSet={`
                       ${builder
                         .image(props.image)

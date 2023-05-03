@@ -1,15 +1,18 @@
 @import "_variables.scss";
 
-.boundParent, .boundParentQuality{
-  position: absolute;
+.boundParent{
+  position: fixed;
   top: calc($lh * 2.4);
   height: calc(100vh - $lh * 2.4);
   left: 0;
   right: 0;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 
 .draggableContainer {
+  pointer-events: all;
   z-index: 1000;
   display: block;
   position: absolute;
