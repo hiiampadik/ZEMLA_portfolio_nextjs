@@ -89,7 +89,7 @@ export default function Projects(props) {
                   className={styles.filmButtonContainer}
                   style={{ top: positions[i][0], left: positions[i][1] }}
                 >
-                  <h1>{router.locale === "cs" ? project.title.cs : project.title.en}</h1>
+                  <h1>{router.locale === "cs" ? project.nameCs : project.nameEn}</h1>
                 </a>
               </Link>
             );

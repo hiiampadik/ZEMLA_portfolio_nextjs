@@ -38,7 +38,7 @@ export default function Article(article) {
               </h1>
             </div>
             <div className={styles.articleTitleContainer}>
-              <h1>{article.title?.en}</h1>
+              <h1>{article.nameEn}</h1>
               <p>{getDate()}</p>
             </div>
             <div className={styles.articleFigure}>
@@ -56,7 +56,7 @@ export default function Article(article) {
         return (
           <>
             <div className={styles.articleTitleContainer}>
-              <h1>{article.title?.cs}</h1>
+              <h1>{article.nameCs}</h1>
               <p>{getDate()}</p>
             </div>
             <div className={styles.articleFigure}>
@@ -73,7 +73,7 @@ export default function Article(article) {
         return (
           <>
             <div className={styles.articleTitleContainer}>
-              <h1>{article.title?.en}</h1>
+              <h1>{article.nameEn}</h1>
               <p>{getDate()}</p>
             </div>
             <div className={styles.articleFigure}>
@@ -99,7 +99,7 @@ export default function Article(article) {
   };
 
   return (
-    <Layout title={router.locale === "cs" ? article.title?.cs: article.title?.en}>
+    <Layout title={router.locale === "cs" ? article.nameCs : article.nameEn}>
       <div className={styles.articleContainer}>{getContent()}</div>
     </Layout>
   );

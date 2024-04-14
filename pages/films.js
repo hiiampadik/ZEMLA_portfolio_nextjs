@@ -96,7 +96,7 @@ export default function Films(props) {
                 key={film._id}
                 onClick={() => openWindow(film)}
               >
-                <h1>{router.locale === "cs" ? film.title?.cs : film.title?.en}</h1>
+                <h1>{router.locale === "cs" ? film.nameCs : film.nameEn}</h1>
               </div>
             );
           }
@@ -108,7 +108,7 @@ export default function Films(props) {
             <div className={styles.filmContainer}>
               <span>
                 <div className={styles.filmContainerHeader}>
-                  {router.locale === "cs" ? showWindow.title?.cs : showWindow.title?.en}
+                  {router.locale === "cs" ? showWindow.nameCs : showWindow.nameEn}
                 </div>
               </span>
               <div

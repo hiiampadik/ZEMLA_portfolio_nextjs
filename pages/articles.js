@@ -54,8 +54,8 @@ export default function Projects(props) {
               <a className={styles.articlesListArticle}>
                 <h1>
                   {router.locale === "cs"
-                    ? article.title?.cs
-                    : article.title?.en}
+                    ? article.nameCs
+                    : article.nameEn}
                 </h1>
                 <p>{getDate(article)}</p>
                 <div className={styles.articlesListArticleFigure}>
