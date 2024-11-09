@@ -2,6 +2,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 import { useTheme } from "next-themes";
 import {useState} from 'react'
+import styles from '../styles/Blocks.module.scss'
 
 const builder = imageUrlBuilder(client);
 
@@ -14,6 +15,7 @@ export default function Figure({
   const [loaded, setLoaded] = useState(false);
 
   const handleLoad = () => {
+    props.handleLoaded?.()
     setLoaded(true);
   };
 
@@ -24,15 +26,14 @@ export default function Figure({
         <>
           {theme === "lowTech"  ? (
             <img
-              className={props.class != null ? props.class : ""}
+              className={props.class != null ? props.class : "" }
               src={builder.image(props.image).auto("format").format('png').width(600).url()}
               alt={props.alt}
               onLoad={handleLoad}
-              style={{ visibility: loaded ? 'visible' : 'hidden' }}
             />
           ) : (
             <img
-              className={props.class != null ? props.class : ""}
+              className={loaded ? styles.loaded : styles.notLoaded}
               src={builder.image(props.image).auto("format").format('jpg').url()}
               alt={props.alt}
               sizes={sizes}

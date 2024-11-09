@@ -9,6 +9,17 @@
 }
 
 .commercialFigureContainer {
+  &.notLoaded {
+    img {
+    opacity: 0;
+    }
+  }
+  &.loaded {
+    img {
+      opacity: 1;
+    }
+  }
+  transition: opacity 0.3s;
   position: absolute;
   top: 0;
   left: $lh;
@@ -147,5 +158,58 @@
   100% {
     opacity: 0;
     transform: translate(-50%, 80vh);
+  }
+}
+
+.filterContainer {
+  position: absolute;
+  z-index: 1000;
+  top: $lh/2;
+  left: $lh;
+
+  background: white;
+  color: black;
+  border: 1.5px black solid;
+  padding: calc($lh * 0.3) calc($lh * 0.5);
+
+  border-radius: var(--borderradius);
+
+  display: flex;
+  gap: $lh;
+
+  p {
+    font-family: var(--menufont);
+    font-weight: 400;
+    font-size: var(--menusize);
+    margin: 0;
+    cursor: pointer;
+    transition: 0.3s;
+    span {
+      margin-right: 6px;
+    }
+  }
+  .orange {
+    span {
+      color: #FF7347;
+    }
+  }
+  .yellow {
+    span {
+      color: #fabd26;
+    }
+  }
+  .blue {
+    span {
+      color: #4763FF;
+    }
+  }
+
+
+
+
+
+  @media only screen and (max-width: 400px) {
+    top: $lh / 2;
+    left: $lh / 2;
   }
 }

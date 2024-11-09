@@ -11,5 +11,11 @@ export default {
      notavailable: "Už není :(",
      pieces: "ks",
      piece: "ks",
-     question: "Proč?"
+     question: "Proč?",
+
+     // tags
+     fashion: 'Fashion',
+     product: 'Product',
+     interior: 'Interior',
+
 };

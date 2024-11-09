@@ -5,7 +5,7 @@ import Figure from "../components/Figure";
 import Draggable from "react-draggable";
 
 import client from "../client";
-import { useEffect, useState } from "react";
+import {useMemo, useState} from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 
@@ -16,29 +16,34 @@ export default function Commercial(commercial) {
   const router = useRouter();
   const t = router.locale === "cs" ? cs : en;
 
-  const { theme, setTheme } = useTheme();
-  const [gallery, setGallery] = useState(null);
-  const [zIndexes, setZIndexes] = useState(null);
-
+  const { theme } = useTheme();
+  const [zIndexes, setZIndexes] = useState(commercial?.galleryArrayWithTags.map((_, index) => index));
   const [showGrab, setShowGrab] = useState(true);
 
-  useEffect(() => {
-    if (theme == "highTech" && commercial?.galleryNormal != null) {
-      setGallery(commercial.galleryNormal);
-      let z = [];
-      for (let i = commercial.galleryNormal.length; i > 0; i--) {
-        z = [...z, i];
+  // <'Fashion', 'Product'>
+  const [filter, setFilter] = useState(null)
+
+  const gallery = useMemo(() => {
+    if (commercial?.galleryArrayWithTags){
+      // filter assets
+      let filteredAssets;
+      if (filter !== null){
+        filteredAssets = commercial.galleryArrayWithTags.filter(item => {
+          item.myTags.some(tag => tag.value === filter)
+        })
+      } else {
+        filteredAssets = commercial.galleryArrayWithTags
       }
-      setZIndexes(z);
-    } else if (theme == "lowTech" && commercial?.galleryLow != null) {
-      setGallery(commercial.galleryLow);
-      let z = [];
-      for (let i = commercial.galleryLow.length; i > 0; i--) {
-        z = [...z, i];
+
+      // get selected quality
+      if (theme === 'highTech'){
+        return filteredAssets.map(item => {return {alt: item.alt, image: item.high.asset}})
+      } else if (theme === 'lowTech') {
+        return filteredAssets.map(item => {return {alt: item.alt, image: item.low.asset}})
       }
-      setZIndexes(z);
     }
-  }, [commercial, theme]);
+    return [];
+  }, [commercial, theme, filter])
 
   const changeZ = (index) => {
     let newZ = [...zIndexes];
@@ -62,54 +67,75 @@ export default function Commercial(commercial) {
     }
   };
 
+  const handleFilter = (newFilter) => {
+    if (newFilter === filter){
+      setFilter(null)
+    } else {
+      setFilter(newFilter)
+    }
+  }
 
   return (
     <Layout title={t.commercial}>
       <div className={styles.boundParent}>
-        {gallery?.map((image, i) => {
+        <div className={styles.filterContainer}>
+          <p onClick={() => handleFilter('fashion')} className={styles.orange}><span>3</span>{t.fashion}</p>
+          <p onClick={() => handleFilter('product')} className={styles.yellow}><span>3</span>{t.product}</p>
+          <p onClick={() => handleFilter('interior')} className={styles.blue}><span>3</span>{t.interior}</p>
+        </div>
+
+        {gallery?.map((item, i) => {
           return (
-            <Draggable
-              key={image._key}
-              bounds="parent"
-              defaultPosition={{
-                x: Math.floor(Math.random() * 150),
-                y: Math.floor(Math.random() * 200),
-              }}
-              onStart={() => {
-                changeZ(i)
-                setShowGrab(false)
-              }}
-            >
-              <div
-                className={styles.commercialFigureContainer}
-                style={{ zIndex: zIndexes[i] }}
-              >
-                <Figure
-                  image={image}
-                  alt={""}
-                  sizes={`
-                    (min-width: 1025px) calc(40vw - 1.43rem * 3), 
-                    (min-width: 768px) calc(50vw - 1.43rem * 3), 
-                    calc(70vw - 1.43rem * 3) 
-                    `}
-                />
-              </div>
-            </Draggable>
+              <CommercialItem item={item} zIndexes={zIndexes} index={i} changeZ={changeZ} setShowGrab={setShowGrab}/>
           );
         })}
       </div>
-      {showGrab &&
-      <div
-        className={`${styles.commercialGrab} ${getStyles()}`}
-      ></div>
-      }
+      {showGrab && <div className={`${styles.commercialGrab} ${getStyles()}`} />}
     </Layout>
   );
 }
 
+
+function CommercialItem({zIndexes, item, index, changeZ, setShowGrab=setShowGrab}) {
+
+  const [loaded, setLoaded] = useState(false)
+
+    return (
+        <Draggable
+            key={item._key}
+            bounds="parent"
+            defaultPosition={{
+              x: Math.floor(Math.random() * 150),
+              y: Math.floor(Math.random() * 200),
+            }}
+            onStart={() => {
+              changeZ(index)
+              setShowGrab(false)
+            }}
+        >
+      <div
+          className={`${styles.commercialFigureContainer} ${loaded ? styles.loaded: styles.notLoaded}`}
+          style={{zIndex: zIndexes?.[index] ?? 0}}
+      >
+        <Figure
+            handleLoaded={() => setLoaded(true)}
+            image={item.image}
+            alt={item.alt}
+            sizes={`
+                      (min-width: 1025px) calc(40vw - 1.43rem * 3), 
+                      (min-width: 768px) calc(50vw - 1.43rem * 3), 
+                      calc(70vw - 1.43rem * 3) 
+                      `}
+        />
+      </div>
+        </Draggable>
+  )
+}
+
+
 export async function getStaticProps(context) {
   const commercial = await client.fetch(
-    `
+      `
     *[_id == "commerce"]  [0] {
       ...,
       "galleryNormal":galleryNormal[]{..., asset->{...}},
@@ -117,8 +143,10 @@ export async function getStaticProps(context) {
       }
     
     `,
-    ""
+      ""
   );
+
+  // galleryArrayWithTags
 
   return {
     props: {
