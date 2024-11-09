@@ -79,9 +79,12 @@ export default function Commercial(commercial) {
     <Layout title={t.commercial}>
       <div className={styles.boundParent}>
         <div className={styles.filterContainer}>
-          <p onClick={() => handleFilter('fashion')} className={styles.orange}><span>3</span>{t.fashion}</p>
-          <p onClick={() => handleFilter('product')} className={styles.yellow}><span>3</span>{t.product}</p>
-          <p onClick={() => handleFilter('interior')} className={styles.blue}><span>3</span>{t.interior}</p>
+          <p onClick={() => handleFilter('fashion')} className={`${styles.orange} ${filter === 'fashion' ? styles.selected : ''}`}>
+            <span>3</span>{t.fashion}</p>
+          <p onClick={() => handleFilter('product')} className={`${styles.yellow} ${filter === 'product' ? styles.selected : ''}`}>
+            <span>3</span>{t.product}</p>
+          <p onClick={() => handleFilter('interior')} className={`${styles.blue} ${filter === 'interior' ? styles.selected : ''}`}>
+            <span>3</span>{t.interior}</p>
         </div>
 
         {gallery?.map((item, i) => {

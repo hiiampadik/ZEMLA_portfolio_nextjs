@@ -162,9 +162,9 @@
 }
 
 .filterContainer {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
-  top: $lh/2;
+  top: $lh * 2;
   left: $lh;
 
   background: white;
@@ -184,7 +184,9 @@
     margin: 0;
     cursor: pointer;
     transition: 0.3s;
+    user-select: none;
     span {
+      transition: 0.3s;
       margin-right: 6px;
     }
   }
@@ -201,6 +203,12 @@
   .blue {
     span {
       color: #4763FF;
+    }
+  }
+  .selected {
+    color: #aeaeae;
+    span {
+      color: #aeaeae;
     }
   }
 
