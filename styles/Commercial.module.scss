@@ -164,8 +164,9 @@
 .filterContainer {
   position: fixed;
   z-index: 1000;
-  top: $lh * 2;
-  left: $lh;
+  top: $lh * 2.2;
+  left: 50%;
+  transform: translateX(-50%);
 
   background: white;
   color: black;
@@ -176,6 +177,10 @@
 
   display: flex;
   gap: $lh;
+
+  @media only screen and (max-width: $breakpoint-largetablet-max) {
+    top: $lh * 2;
+  }
 
   p {
     font-family: var(--menufont);
@@ -194,9 +199,15 @@
     span {
       color: #FF7347;
     }
+    &.selected {
+      color: #FF7347;
+    }
   }
   .yellow {
     span {
+      color: #fabd26;
+    }
+    &.selected {
       color: #fabd26;
     }
   }
@@ -204,20 +215,8 @@
     span {
       color: #4763FF;
     }
-  }
-  .selected {
-    color: #aeaeae;
-    span {
-      color: #aeaeae;
+    &.selected {
+      color: #4763FF;
     }
-  }
-
-
-
-
-
-  @media only screen and (max-width: 400px) {
-    top: $lh / 2;
-    left: $lh / 2;
   }
 }
