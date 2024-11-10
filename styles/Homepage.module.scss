@@ -1,7 +1,6 @@
 @import "_variables.scss";
 
 .homeSwiper{
-  pointer-events: none;
   user-select: none;
   position: fixed;
   top: 49%;
@@ -18,6 +17,28 @@
   }
   @media only screen and (max-width: $breakpoint-mobile-max) {
     max-width: 95vw;
+  }
+  :global {
+    .swiper-button-prev{
+      display: none;
+    }
+    .swiper-button-next {
+      cursor: e-resize;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      margin: 0;
+      &::after{
+        display: none;
+      }
+    }
+
+    @media (hover: none){
+      .swiper-button-next {
+        display: none;
+      }
+    }
   }
 }
 

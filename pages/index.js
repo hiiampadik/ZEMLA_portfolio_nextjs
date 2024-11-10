@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 
 import client from "../client";
 import Figure from "../components/Figure";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper";
+import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
+import {Autoplay, EffectFade, Navigation} from "swiper";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
+import 'swiper/css/navigation';
+
 
 export default function Home(props) {
   const router = useRouter();
@@ -30,13 +32,13 @@ export default function Home(props) {
       <Swiper
         loop={true}
         className={styles.homeSwiper}
-        noSwiping={true}
-        modules={[Autoplay, EffectFade]}
+        modules={[Autoplay, EffectFade, Navigation]}
+        navigation={true}
         effect="fade"
         fadeEffect={{
           crossFade: true, // enables slides to cross fade
         }}
-        speed={700}
+        // speed={700}
         autoplay={{
           delay: 4000,
         }}
