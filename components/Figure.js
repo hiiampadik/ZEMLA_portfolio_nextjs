@@ -12,11 +12,8 @@ export default function Figure({
 }) {
   const { theme } = useTheme();
 
-  const [loaded, setLoaded] = useState(false);
-
   const handleLoad = () => {
     props.handleLoaded?.()
-    setLoaded(true);
   };
 
   return (
@@ -33,12 +30,10 @@ export default function Figure({
             />
           ) : (
             <img
-              className={loaded ? styles.loaded : styles.notLoaded}
               src={builder.image(props.image).auto("format").format('jpg').url()}
               alt={props.alt}
               sizes={sizes}
               onLoad={handleLoad}
-              style={{ display: loaded ? 'block' : 'none' }}
               srcSet={`
                       ${builder
                         .image(props.image)

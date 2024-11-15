@@ -10,16 +10,11 @@
 
 .commercialFigureContainer {
   &.notLoaded {
-    img {
     opacity: 0;
-    }
   }
   &.loaded {
-    img {
-      opacity: 1;
-    }
+    opacity: 1;
   }
-  transition: opacity 0.3s;
   position: absolute;
   top: 0;
   left: $lh;
@@ -60,7 +55,6 @@
 
 
     box-shadow: 0px 0px $lh * 0.3 rgba(50, 50, 50, 0.5);
-
   }
 }
 
@@ -164,25 +158,29 @@
 .filterContainer {
   position: fixed;
   z-index: 1000;
-  top: $lh * 2.2;
-  left: 50%;
-  transform: translateX(-50%);
+  top: $lh * 2;
+  right: $lh;
 
-  background: white;
-  color: black;
-  border: 1.5px black solid;
-  padding: calc($lh * 0.3) calc($lh * 0.5);
-
-  border-radius: var(--borderradius);
+  max-width: 300px;
+  width: calc(100vw - 2*$lh);
 
   display: flex;
-  gap: $lh;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px;
 
   @media only screen and (max-width: $breakpoint-largetablet-max) {
     top: $lh * 2;
   }
+  @media only screen and (max-width:  $breakpoint-mobile-max) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
-  p {
+
+
+
+  button {
     font-family: var(--menufont);
     font-weight: 400;
     font-size: var(--menusize);
@@ -190,33 +188,21 @@
     cursor: pointer;
     transition: 0.3s;
     user-select: none;
+    border: none;
+    border: 1.5px white solid;
+    padding: 2px 18px;
+    background: black;
+    color: white;
+    border-radius: var(--borderradius);
+
     span {
       transition: 0.3s;
       margin-right: 6px;
+      display: none;
     }
   }
-  .orange {
-    span {
-      color: #FF7347;
-    }
-    &.selected {
-      color: #FF7347;
-    }
-  }
-  .yellow {
-    span {
-      color: #fabd26;
-    }
-    &.selected {
-      color: #fabd26;
-    }
-  }
-  .blue {
-    span {
-      color: #4763FF;
-    }
-    &.selected {
-      color: #4763FF;
-    }
+
+  .selected {
+    background: #4763FF;
   }
 }

@@ -19,49 +19,26 @@ export default function Commercial(commercial) {
   const { theme } = useTheme();
   const [zIndexes, setZIndexes] = useState(commercial?.galleryArrayWithTags.map((_, index) => index));
   const [showGrab, setShowGrab] = useState(true);
-
-  // <'Fashion', 'Product', 'Interior'>
   const [filter, setFilter] = useState(null)
 
-  const [gallery, tagsCount] = useMemo(() => {
-    const tagsCount = {fashion: 0, interior: 0, product: 0}
+  const gallery = useMemo(() => {
     if (commercial?.galleryArrayWithTags){
-
-      // counting tags
-      for (let item of commercial.galleryArrayWithTags){
-        for (let tag of item.myTags){
-          if (tag.value === 'Fashion'){
-            tagsCount.fashion += 1;
-          }
-          if (tag.value === 'Interior'){
-            tagsCount.interior += 1;
-          }
-          if (tag.value === 'Product'){
-            tagsCount.product += 1;
-          }
-        }
-      }
-
-      // filter assets
       let filteredAssets;
-      if (filter !== null){
-        filteredAssets = commercial.galleryArrayWithTags.filter(item => {
-          return item.myTags.some(tag => tag.value === filter)
-        })
-      } else {
-        filteredAssets = commercial.galleryArrayWithTags
-      }
 
       // get selected quality
       if (theme === 'highTech'){
-        filteredAssets = filteredAssets.map(item => {return {alt: item.alt, image: item.high.asset}})
+        filteredAssets = commercial.galleryArrayWithTags.map(item => {
+          return {alt: item.alt, image: item.high.asset, myTags: item.myTags.map(item => item.value)}
+        })
       } else if (theme === 'lowTech') {
-        filteredAssets = filteredAssets.map(item => {return {alt: item.alt, image: item.low.asset}})
+        filteredAssets = commercial.galleryArrayWithTags.map(item => {
+          return {alt: item.alt, image: item.low.asset, myTags: item.myTags.map(item => item.value)}
+        })
       }
-      return [filteredAssets, tagsCount]
+      return filteredAssets
     }
-    return [[], tagsCount];
-  }, [commercial, theme, filter])
+    return [];
+  }, [commercial, theme])
 
   const changeZ = (index) => {
     let newZ = [...zIndexes];
@@ -97,19 +74,17 @@ export default function Commercial(commercial) {
     <Layout title={t.commercial}>
       <div className={styles.boundParent}>
         <div className={styles.filterContainer}>
-          <p onClick={() => handleFilter('Fashion')} className={`${styles.orange} ${filter === 'Fashion' ? styles.selected : ''}`}>
-            <span>{tagsCount.fashion}</span>{t.fashion}</p>
-          <p onClick={() => handleFilter('Product')} className={`${styles.yellow} ${filter === 'Product' ? styles.selected : ''}`}>
-            <span>{tagsCount.product}</span>{t.product}</p>
-          <p onClick={() => handleFilter('Interior')} className={`${styles.blue} ${filter === 'Interior' ? styles.selected : ''}`}>
-            <span>{tagsCount.interior}</span>{t.interior}</p>
+          <button onClick={() => handleFilter('design')} className={filter === 'design' ? styles.selected : ''}>{t.design}</button>
+          <button onClick={() => handleFilter('fashion')} className={filter === 'fashion' ? styles.selected : ''}>{t.fashion}</button>
+          <button onClick={() => handleFilter('interior')} className={filter === 'interior' ? styles.selected : ''}>{t.interior}</button>
+          <button onClick={() => handleFilter('architecture')} className={filter === 'architecture' ? styles.selected : ''}>{t.architecture}</button>
+          <button onClick={() => handleFilter('food')} className={filter === 'food' ? styles.selected : ''}>{t.food}</button>
+          <button onClick={() => handleFilter('jewelry')} className={filter === 'jewelry' ? styles.selected : ''}>{t.jewelry}</button>
         </div>
 
-        {gallery?.map((item, i) => {
-          return (
-              <CommercialItem item={item} zIndexes={zIndexes} index={i} changeZ={changeZ} setShowGrab={setShowGrab}/>
-          );
-        })}
+        {gallery?.map((item, i) => (
+            <CommercialItem item={item} zIndexes={zIndexes} index={i} changeZ={changeZ} setShowGrab={setShowGrab} filter={filter}/>)
+        )}
       </div>
       {showGrab && <div className={`${styles.commercialGrab} ${getStyles()}`} />}
     </Layout>
@@ -117,7 +92,7 @@ export default function Commercial(commercial) {
 }
 
 
-function CommercialItem({zIndexes, item, index, changeZ, setShowGrab=setShowGrab}) {
+function CommercialItem({zIndexes, item, index, changeZ, setShowGrab=setShowGrab, filter}) {
 
   const [loaded, setLoaded] = useState(false)
 
@@ -136,7 +111,7 @@ function CommercialItem({zIndexes, item, index, changeZ, setShowGrab=setShowGrab
         >
       <div
           className={`${styles.commercialFigureContainer} ${loaded ? styles.loaded: styles.notLoaded}`}
-          style={{zIndex: zIndexes?.[index] ?? 0}}
+          style={{zIndex: zIndexes?.[index] ?? 0, display: filter === null || item.myTags.includes(filter) ? 'block' : 'none'}}
       >
         <Figure
             handleLoaded={() => setLoaded(true)}

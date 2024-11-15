@@ -16,6 +16,9 @@ export default {
 
      // tags,
      fashion: 'Fashion',
-     product: 'Product',
      interior: 'Interior',
+     design: 'Design',
+     architecture: 'Architecture',
+     food: 'Food',
+     jewelry: 'Jewelry',
 };

@@ -15,7 +15,9 @@ export default {
 
      // tags
      fashion: 'Fashion',
-     product: 'Product',
-     interior: 'Interior',
-
+     interior: 'Interiér',
+     design: 'Design',
+     architecture: 'Architektura',
+     food: 'Jídlo',
+     jewelry: 'Šperk',
 };
