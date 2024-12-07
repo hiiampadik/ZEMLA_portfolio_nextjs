@@ -116,9 +116,9 @@ function ContainerMenu(props) {
           <Link href={"/films"} locale={props.router.locale}>
             <a className={styles.pink}>{props.t.films}</a>
           </Link>
-          {/* <Link href={"/print"} locale={props.router.locale}>
-          {props.t.print}
-        </Link> */}
+          <Link href={"/weddings"} locale={props.router.locale}>
+            <a className={styles.purple}>{props.t.weddings}</a>
+          </Link>
           {/* <Link href={"/articles"} locale={props.router.locale}>
           {props.t.articles}
         </Link> */}
@@ -173,9 +173,9 @@ function MenuWindow(props) {
         <Link href={"/films"} locale={router.locale}>
           <a className={styles.pink}>{t.films}</a>
         </Link>
-        {/* <Link href={"/print"} locale={router.locale}>
-          {t.print}
-        </Link> */}
+        <Link href={"/weddings"} locale={router.locale}>
+          <a className={styles.purple}>{t.weddings}</a>
+        </Link>
         {/* <Link href={"/articles"} locale={router.locale}>
           {t.articles}
         </Link> */}

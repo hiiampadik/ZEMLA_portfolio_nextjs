@@ -133,16 +133,12 @@ export async function getStaticProps(context) {
   const commercial = await client.fetch(
       `
     *[_id == "commerce"]  [0] {
-      ...,
-      "galleryNormal":galleryNormal[]{..., asset->{...}},
-      "galleryLow":galleryLow[]{..., asset->{...}},
+      ...
       }
     
     `,
       ""
   );
-
-  // galleryArrayWithTags
 
   return {
     props: {

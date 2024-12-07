@@ -2,6 +2,7 @@ export default {
      about: 'About',
      projects: 'Projects',
      commercial: 'Commercial',
+     weddings: 'Weddings',
      films: 'Films',
      languageSwitch: 'Cz',
      info: 'Abstract',
